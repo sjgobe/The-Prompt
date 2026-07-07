@@ -47,7 +47,6 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #A0B299;
         }
-        /* Custom subtle focus effects and typography styles */
         .glassmorphism {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -131,6 +130,21 @@
         <p id="toast-message" class="text-sm font-semibold tracking-wide"></p>
     </div>
 
+    <!-- Custom Alert Modal Dialog -->
+    <div id="alert-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-2xl border border-gray-100 max-w-sm w-full p-6 shadow-2xl space-y-4 transform scale-95 transition-transform duration-200">
+            <div class="flex items-center space-x-3 text-hwsPurple">
+                <i class="fa-solid fa-circle-question text-xl"></i>
+                <h4 class="text-base font-bold text-gray-900" id="modal-title">Clear Sandbox Confirm</h4>
+            </div>
+            <p class="text-xs text-gray-600 leading-relaxed" id="modal-body">Are you sure you want to proceed?</p>
+            <div class="flex space-x-3">
+                <button id="modal-btn-cancel" class="flex-1 text-xs font-bold text-gray-500 hover:bg-gray-100 py-2.5 rounded-lg border border-gray-200 transition-all">Cancel</button>
+                <button id="modal-btn-confirm" class="flex-1 text-xs font-bold text-white bg-hwsPurple hover:bg-hwsPurple/90 py-2.5 rounded-lg transition-all">Yes, Proceed</button>
+            </div>
+        </div>
+    </div>
+
     <!-- MAIN NEWSLETTER CONTAINER -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <div id="fontSizeContainer" class="text-base transition-all duration-200">
@@ -210,14 +224,14 @@
                                 <div class="w-8 h-8 rounded-lg bg-purple-50 text-hwsPurple flex items-center justify-center font-bold text-sm group-hover:scale-105 transition-transform">04</div>
                                 <div>
                                     <h5 class="text-sm font-semibold text-gray-800 leading-tight group-hover:text-hwsPurple transition-colors">The Community Prompt</h5>
-                                    <p class="text-xs text-gray-500 mt-0.5">Interactive sharing wall</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">Interactive live whiteboard</p>
                                 </div>
                             </a>
                             <a href="#book-club-sec" class="group flex items-start space-x-3 p-2.5 rounded-xl transition-all hover:bg-gray-50">
                                 <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm group-hover:scale-105 transition-transform">05</div>
                                 <div>
                                     <h5 class="text-sm font-semibold text-gray-800 leading-tight group-hover:text-amber-600 transition-colors">Fall AI Book Club</h5>
-                                    <p class="text-xs text-gray-500 mt-0.5">Interactive voting poll</p>
+                                    <p class="text-xs text-gray-500 mt-0.5">Interactive voting survey</p>
                                 </div>
                             </a>
                         </div>
@@ -234,16 +248,17 @@
                             What We Learned from the Spring BoodleBox Pilot
                         </h3>
                         <p class="text-gray-600 mt-3 text-base leading-relaxed">
-                            This spring, Hobart and William Smith Colleges conducted a pilot of <strong>BoodleBox</strong>, a collaborative generative AI platform. Through surveys, workshops, office hours, classroom conversations, and a final wrap-up session, participants shared valuable insights about AI literacy, teaching, learning, and the role of generative AI at HWS.
+                            This spring, Hobart and William Smith Colleges conducted a pilot of <strong>BoodleBox</strong>, a collaborative generative AI platform. Through surveys, workshops, office hours, classroom conversations, and a final wrap-up session, participants shared valuable insights not only about the platform itself, but about AI literacy, teaching, learning, and the role of generative AI at HWS.
                         </p>
+                        <p class="text-sm text-gray-500 italic mt-2">While every participant had a unique experience, eight themes emerged consistently throughout the pilot.</p>
                     </div>
 
                     <!-- Themes Interactive Explorer -->
                     <div class="space-y-4">
                         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
                             <div>
-                                <h4 class="text-sm font-semibold text-gray-800">8 Emergent Consensus Themes</h4>
-                                <p class="text-xs text-gray-500">Click individual themes to expand detailed reflections and actions.</p>
+                                <h4 class="text-sm font-semibold text-gray-800 font-serif">8 Emergent Consensus Themes</h4>
+                                <p class="text-xs text-gray-500">Click individual themes to expand the full original verbatim text.</p>
                             </div>
                             <!-- Search filter for themes -->
                             <div class="relative w-full sm:w-64">
@@ -258,16 +273,16 @@
                             <!-- Theme 1 -->
                             <div class="theme-card bg-white border border-gray-100 hover:border-gray-200 rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer group" onclick="toggleThemeDetails(1)">
                                 <div class="flex items-start space-x-3.5">
-                                    <div class="w-9 h-9 rounded-lg bg-purple-50 text-hwsPurple flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm">1</div>
+                                    <div class="w-9 h-9 rounded-lg bg-purple-50 text-hwsPurple flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm font-serif">1</div>
                                     <div class="flex-1 space-y-1">
-                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-hwsPurple transition-colors">
+                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-hwsPurple transition-colors font-serif">
                                             AI Literacy Is About Critical Thinking, Not Just Technology
                                         </h5>
-                                        <p class="text-xs text-gray-500 line-clamp-2">Using AI well requires judgment. Verifying information, recognizing hallucinations, and questioning bias.</p>
+                                        <p class="text-xs text-hwsPurple font-medium">Read Complete Paragraph &rarr;</p>
                                     </div>
                                     <i id="theme-icon-1" class="fa-solid fa-chevron-right text-gray-400 text-xs mt-1 transition-transform"></i>
                                 </div>
-                                <div id="theme-detail-1" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2">
+                                <div id="theme-detail-1" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2 font-serif">
                                     <p>A recurring message throughout the pilot was that using AI well requires judgment. Participants emphasized the importance of verifying information, checking sources, recognizing hallucinations, and understanding bias. Understanding how AI works matters but developing the judgment to know when to trust it, and when to question it, may matter even more.</p>
                                 </div>
                             </div>
@@ -275,34 +290,34 @@
                             <!-- Theme 2 -->
                             <div class="theme-card bg-white border border-gray-100 hover:border-gray-200 rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer group" onclick="toggleThemeDetails(2)">
                                 <div class="flex items-start space-x-3.5">
-                                    <div class="w-9 h-9 rounded-lg bg-green-50 text-hwsGreen flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm">2</div>
+                                    <div class="w-9 h-9 rounded-lg bg-green-50 text-hwsGreen flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm font-serif">2</div>
                                     <div class="flex-1 space-y-1">
-                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-hwsGreen transition-colors">
+                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-hwsGreen transition-colors font-serif">
                                             AI Literacy Requires Conversation, Not Just Access
                                         </h5>
-                                        <p class="text-xs text-gray-500 line-clamp-2">Providing a tool is only part of the work. Reflection, active dialogue, and communities of practice drive learning.</p>
+                                        <p class="text-xs text-hwsGreen font-medium">Read Complete Paragraph &rarr;</p>
                                     </div>
                                     <i id="theme-icon-2" class="fa-solid fa-chevron-right text-gray-400 text-xs mt-1 transition-transform"></i>
                                 </div>
-                                <div id="theme-detail-2" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2">
+                                <div id="theme-detail-2" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2 font-serif">
                                     <p>One of the clearest lessons from the pilot was that providing access to an AI tool is only part of the work. What seemed to have the greatest impact on participants' confidence and understanding were the conversations that happened around the tool: during class time, workshops, office hours, lunch discussions, and informal exchanges with colleagues or peers.</p>
-                                    <p>Participants valued opportunities to share ideas, compare experiences, troubleshoot challenges, and discuss concerns. The pilot reinforced that AI literacy is not something we build through access alone. It develops through reflection, dialogue, and community learning.</p>
+                                    <p class="mt-2">Participants valued opportunities to share ideas, compare experiences, troubleshoot challenges, and discuss concerns. The pilot reinforced that AI literacy is not something we build through access alone. It develops through reflection, dialogue, and community learning.</p>
                                 </div>
                             </div>
 
                             <!-- Theme 3 -->
                             <div class="theme-card bg-white border border-gray-100 hover:border-gray-200 rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer group" onclick="toggleThemeDetails(3)">
                                 <div class="flex items-start space-x-3.5">
-                                    <div class="w-9 h-9 rounded-lg bg-orange-50 text-hwsOrange flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm">3</div>
+                                    <div class="w-9 h-9 rounded-lg bg-orange-50 text-hwsOrange flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm font-serif">3</div>
                                     <div class="flex-1 space-y-1">
-                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-hwsOrange transition-colors">
-                                            Students Have Complex Feelings About AI
+                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-hwsOrange transition-colors font-serif">
+                                            Students Have More Complex Feelings About AI Than We Sometimes Assume
                                         </h5>
-                                        <p class="text-xs text-gray-500 line-clamp-2">Concerns extend far beyond classroom policies. Creativity, ethics, equity, and environmental impacts dominate student thoughts.</p>
+                                        <p class="text-xs text-hwsOrange font-medium">Read Complete Paragraph &rarr;</p>
                                     </div>
                                     <i id="theme-icon-3" class="fa-solid fa-chevron-right text-gray-400 text-xs mt-1 transition-transform"></i>
                                 </div>
-                                <div id="theme-detail-3" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2">
+                                <div id="theme-detail-3" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2 font-serif">
                                     <p>One of the most interesting findings was that student concerns often extended far beyond classroom policies. Some students were excited about using BoodleBox in their classes, some were skeptical, and many were wrestling with questions about creativity, learning, fairness, equity, environmental impact, and the broader implications of generative AI in society. The pilot reinforced the need for spaces where students can engage in thoughtful academic conversations about these issues.</p>
                                 </div>
                             </div>
@@ -310,16 +325,16 @@
                             <!-- Theme 4 -->
                             <div class="theme-card bg-white border border-gray-100 hover:border-gray-200 rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer group" onclick="toggleThemeDetails(4)">
                                 <div class="flex items-start space-x-3.5">
-                                    <div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm">4</div>
+                                    <div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm font-serif">4</div>
                                     <div class="flex-1 space-y-1">
-                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-amber-600 transition-colors">
+                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-amber-600 transition-colors font-serif">
                                             AI Works Best When It Has a Clear Purpose
                                         </h5>
-                                        <p class="text-xs text-gray-500 line-clamp-2">Tools are highly useful for structured brainstorming and planning, but ineffective without specific problem goals.</p>
+                                        <p class="text-xs text-amber-600 font-medium">Read Complete Paragraph &rarr;</p>
                                     </div>
                                     <i id="theme-icon-4" class="fa-solid fa-chevron-right text-gray-400 text-xs mt-1 transition-transform"></i>
                                 </div>
-                                <div id="theme-detail-4" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2">
+                                <div id="theme-detail-4" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2 font-serif">
                                     <p>Participants found BoodleBox most useful for specific tasks such as brainstorming, lesson planning, drafting, summarizing, creating presentations, generating images, studying, and adapting content for different audiences. The tool was less effective when users approached it without a clear goal. One of the strongest pieces of advice from participants was simple: start with a specific problem you are trying to solve.</p>
                                 </div>
                             </div>
@@ -327,16 +342,16 @@
                             <!-- Theme 5 -->
                             <div class="theme-card bg-white border border-gray-100 hover:border-gray-200 rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer group" onclick="toggleThemeDetails(5)">
                                 <div class="flex items-start space-x-3.5">
-                                    <div class="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm">5</div>
+                                    <div class="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm font-serif">5</div>
                                     <div class="flex-1 space-y-1">
-                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-blue-600 transition-colors">
+                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-blue-600 transition-colors font-serif">
                                             Confidence Comes Through Experimentation
                                         </h5>
-                                        <p class="text-xs text-gray-500 line-clamp-2">Comfort grows through play, comparison testing, and reflection, not through technical mastery.</p>
+                                        <p class="text-xs text-blue-600 font-medium">Read Complete Paragraph &rarr;</p>
                                     </div>
                                     <i id="theme-icon-5" class="fa-solid fa-chevron-right text-gray-400 text-xs mt-1 transition-transform"></i>
                                 </div>
-                                <div id="theme-detail-5" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2">
+                                <div id="theme-detail-5" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2 font-serif">
                                     <p>Many participants reported that their comfort with AI increased over the course of the pilot. The people who gained the most value were often those who spent time experimenting, comparing models, testing limitations, and reflecting on the results. Confidence didn't come from mastering every feature. It came from being willing to experiment, make mistakes, and learn along the way.</p>
                                 </div>
                             </div>
@@ -344,16 +359,16 @@
                             <!-- Theme 6 -->
                             <div class="theme-card bg-white border border-gray-100 hover:border-gray-200 rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer group" onclick="toggleThemeDetails(6)">
                                 <div class="flex items-start space-x-3.5">
-                                    <div class="w-9 h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm">6</div>
+                                    <div class="w-9 h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm font-serif">6</div>
                                     <div class="flex-1 space-y-1">
-                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-red-600 transition-colors">
+                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-red-600 transition-colors font-serif">
                                             Equity and Access Matter
                                         </h5>
-                                        <p class="text-xs text-gray-500 line-clamp-2">Institutionally supported software levels the playing field but needs active, intentional onboarding.</p>
+                                        <p class="text-xs text-red-600 font-medium">Read Complete Paragraph &rarr;</p>
                                     </div>
                                     <i id="theme-icon-6" class="fa-solid fa-chevron-right text-gray-400 text-xs mt-1 transition-transform"></i>
                                 </div>
-                                <div id="theme-detail-6" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2">
+                                <div id="theme-detail-6" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2 font-serif">
                                     <p>Participants repeatedly noted that institutionally supported AI tools can help create more equitable access for students. At the same time, the pilot highlighted significant differences in students' prior experiences, familiarity, and comfort levels with AI. Supporting AI literacy means addressing those differences intentionally.</p>
                                 </div>
                             </div>
@@ -361,16 +376,16 @@
                             <!-- Theme 7 -->
                             <div class="theme-card bg-white border border-gray-100 hover:border-gray-200 rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer group" onclick="toggleThemeDetails(7)">
                                 <div class="flex items-start space-x-3.5">
-                                    <div class="w-9 h-9 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm">7</div>
+                                    <div class="w-9 h-9 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm font-serif">7</div>
                                     <div class="flex-1 space-y-1">
-                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-teal-600 transition-colors">
+                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-teal-600 transition-colors font-serif">
                                             Faculty Need Practical Examples and Resources
                                         </h5>
-                                        <p class="text-xs text-gray-500 line-clamp-2">Constant requests for quick-start guides, tutorial walk-throughs, and localized case studies.</p>
+                                        <p class="text-xs text-teal-600 font-medium">Read Complete Paragraph &rarr;</p>
                                     </div>
                                     <i id="theme-icon-7" class="fa-solid fa-chevron-right text-gray-400 text-xs mt-1 transition-transform"></i>
                                 </div>
-                                <div id="theme-detail-7" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2">
+                                <div id="theme-detail-7" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2 font-serif">
                                     <p>One of the most consistent requests was for clearer support materials. Participants asked for quick-start guides, classroom examples, tutorials, prompt examples, and resources that demonstrate how AI can be used in specific disciplines and contexts.</p>
                                 </div>
                             </div>
@@ -378,16 +393,16 @@
                             <!-- Theme 8 -->
                             <div class="theme-card bg-white border border-gray-100 hover:border-gray-200 rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer group" onclick="toggleThemeDetails(8)">
                                 <div class="flex items-start space-x-3.5">
-                                    <div class="w-9 h-9 rounded-lg bg-gray-100 text-gray-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm">8</div>
+                                    <div class="w-9 h-9 rounded-lg bg-gray-100 text-gray-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold text-sm font-serif">8</div>
                                     <div class="flex-1 space-y-1">
-                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-gray-700 transition-colors">
+                                        <h5 class="text-sm font-semibold text-gray-900 leading-snug group-hover:text-gray-700 transition-colors font-serif">
                                             We Still Have Important Questions to Answer
                                         </h5>
-                                        <p class="text-xs text-gray-500 line-clamp-2">Unresolved issues: privacy, security, carbon foot-print, source transparency, ownership.</p>
+                                        <p class="text-xs text-gray-700 font-medium">Read Complete Paragraph &rarr;</p>
                                     </div>
                                     <i id="theme-icon-8" class="fa-solid fa-chevron-right text-gray-400 text-xs mt-1 transition-transform"></i>
                                 </div>
-                                <div id="theme-detail-8" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2">
+                                <div id="theme-detail-8" class="hidden mt-4 pt-4 border-t border-gray-100 text-xs text-gray-600 leading-relaxed space-y-2 font-serif">
                                     <p>Not every question was resolved during the pilot. Participants raised ongoing questions about privacy, security, environmental impact, bot ownership, source transparency, institutional policy, and the role AI should play in teaching and learning. Those questions remain important and will continue to shape future conversations and planning.</p>
                                 </div>
                             </div>
@@ -399,17 +414,17 @@
                     <div class="bg-gradient-to-r from-purple-50 to-green-50 border border-gray-100 rounded-2xl p-6 md:p-8">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
                             <div class="space-y-2 max-w-2xl">
-                                <h4 class="text-lg font-bold text-gray-900">What Comes Next?</h4>
+                                <h4 class="text-lg font-bold text-gray-900 font-serif">What Comes Next?</h4>
                                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-hwsPurple rounded-full mr-2.5"></span>AI Literacy student guides</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-hwsGreen rounded-full mr-2.5"></span>Clearer tutorials & docs</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-hwsOrange rounded-full mr-2.5"></span>Practical classroom examples</li>
-                                    <li class="flex items-center"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-2.5"></span>Centered focus on student voices</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-hwsPurple rounded-full mr-2.5"></span>AI Literacy resources for students & faculty</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-hwsGreen rounded-full mr-2.5"></span>Clearer support materials and tutorials</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-hwsOrange rounded-full mr-2.5"></span>Practical classroom examples and use cases</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-2.5"></span>Opportunities for conversation / student-center focus</li>
                                 </ul>
                             </div>
                             <div class="flex-shrink-0">
-                                <p class="text-xs text-gray-500 italic max-w-xs md:text-right">
-                                    "AI literacy is not about becoming an expert. It is about developing the habits and critical thinking skills needed to engage thoughtfully."
+                                <p class="text-xs text-gray-500 italic max-w-xs md:text-right font-serif">
+                                    "Perhaps the most important lesson from the pilot is that AI literacy is not about becoming an AI expert. It is about developing the knowledge, habits, and critical thinking skills..."
                                 </p>
                             </div>
                         </div>
@@ -425,7 +440,7 @@
                         <h3 class="text-3xl font-serif font-bold text-gray-900 leading-tight">
                             DEC AI Literacy Framework Spotlight
                         </h3>
-                        <p class="text-gray-600 leading-relaxed">
+                        <p class="text-gray-600 leading-relaxed font-serif">
                             As AI continues to show up in our classrooms, workplaces, and everyday lives, it feels important that we have a shared way to talk about what it means to use these tools. The <strong>Digital Education Council (DEC) AI Literacy Framework</strong> offers a practical, multi-dimensional way to structure training and assessment.
                         </p>
                         <p class="text-gray-600 leading-relaxed text-sm">
@@ -444,8 +459,8 @@
                         <div class="w-16 h-16 rounded-full bg-hwsGreen/10 flex items-center justify-center text-hwsGreen text-2xl">
                             <i class="fa-solid fa-table-cells"></i>
                         </div>
-                        <h4 class="text-sm font-bold text-gray-800">5 Dimensions of Literacy</h4>
-                        <p class="text-xs text-gray-500 max-w-xs leading-relaxed">
+                        <h4 class="text-sm font-bold text-gray-800 font-serif">5 Dimensions of Literacy</h4>
+                        <p class="text-xs text-gray-500 max-w-xs leading-relaxed font-serif">
                             Understanding AI, Critical Thinking, Ethical Use, Human-Centricity, and Domain Expertise. Structured across three competencies.
                         </p>
                         <div class="w-full bg-white border border-gray-200 rounded-xl p-3 flex items-center justify-between text-xs font-semibold text-gray-700 shadow-sm">
@@ -470,32 +485,32 @@
                             Open Workbook Tracker<i class="fa-solid fa-chevron-right ml-1.5"></i>
                         </button>
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
+                    <p class="text-gray-600 leading-relaxed font-serif">
                         A low-stakes, four-week self-guided challenge to help you explore AI on your own terms. Try one lightweight, curated prompt, reflect for five minutes, and save what adds value.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="border border-gray-100 bg-gray-50/50 p-5 rounded-2xl space-y-2">
                             <span class="text-xl">🏖️</span>
-                            <h4 class="text-xs font-bold uppercase text-hwsOrange">Week 1</h4>
-                            <p class="text-xs font-semibold text-gray-800">AI Beach Read</p>
+                            <h4 class="text-xs font-bold uppercase text-hwsOrange font-serif">Week 1</h4>
+                            <p class="text-xs font-semibold text-gray-800 font-serif">AI Beach Read</p>
                             <p class="text-[11px] text-gray-500">Practice summarizing dense text into key takeaways & student concerns.</p>
                         </div>
                         <div class="border border-gray-100 bg-gray-50/50 p-5 rounded-2xl space-y-2">
                             <span class="text-xl">🧴</span>
-                            <h4 class="text-xs font-bold uppercase text-hwsOrange">Week 2</h4>
-                            <p class="text-xs font-semibold text-gray-800">Syllabus Sunscreen</p>
+                            <h4 class="text-xs font-bold uppercase text-hwsOrange font-serif">Week 2</h4>
+                            <p class="text-xs font-semibold text-gray-800 font-serif">Syllabus Sunscreen</p>
                             <p class="text-[11px] text-gray-500">Run course documents to assess warmth, tone, clarity, and access metrics.</p>
                         </div>
                         <div class="border border-gray-100 bg-gray-50/50 p-5 rounded-2xl space-y-2">
                             <span class="text-xl">🛟</span>
-                            <h4 class="text-xs font-bold uppercase text-hwsOrange">Week 3</h4>
-                            <p class="text-xs font-semibold text-gray-800">Lazy River Brainstorm</p>
+                            <h4 class="text-xs font-bold uppercase text-hwsOrange font-serif">Week 3</h4>
+                            <p class="text-xs font-semibold text-gray-800 font-serif">Lazy River Brainstorm</p>
                             <p class="text-[11px] text-gray-500">Ideate five diverse activities to revitalize teaching mechanics.</p>
                         </div>
                         <div class="border border-gray-100 bg-gray-50/50 p-5 rounded-2xl space-y-2">
                             <span class="text-xl">🔥</span>
-                            <h4 class="text-xs font-bold uppercase text-hwsOrange">Week 4</h4>
-                            <p class="text-xs font-semibold text-gray-800">Campfire Reflection</p>
+                            <h4 class="text-xs font-bold uppercase text-hwsOrange font-serif">Week 4</h4>
+                            <p class="text-xs font-semibold text-gray-800 font-serif">Campfire Reflection</p>
                             <p class="text-[11px] text-gray-500">Use AI as an active conversational mirror to structure course goals.</p>
                         </div>
                     </div>
@@ -503,11 +518,11 @@
                     <!-- July Challenge Interactive Community Connection Banner -->
                     <div class="bg-gradient-to-r from-orange-50 to-amber-50/70 border-l-4 border-hwsOrange p-5 rounded-r-2xl mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
                         <div class="space-y-1 text-left w-full">
-                            <h4 class="text-sm font-bold text-gray-900 flex items-center">
+                            <h4 class="text-sm font-bold text-gray-900 flex items-center font-serif">
                                 <i class="fa-solid fa-comments text-hwsOrange mr-2 text-base"></i>
                                 Connect & Share Your Challenge Learning!
                             </h4>
-                            <p class="text-xs text-gray-600">
+                            <p class="text-xs text-gray-600 font-serif">
                                 How did your weekly prompts go? Share what the AI missed, what surprised you, and swap takeaways with other HWS participants.
                             </p>
                         </div>
@@ -517,27 +532,28 @@
                     </div>
                 </section>
 
-                <!-- SECTION 4: THE COMMUNITY PROMPT -->
+                <!-- SECTION 4: THE COMMUNITY PROMPT (Fully Standalone Realtime Board) -->
                 <section id="community-prompt" class="bg-white rounded-3xl border border-gray-100 p-6 md:p-10 shadow-sm scroll-mt-24 space-y-6">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 pb-5">
                         <div class="space-y-2">
                             <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold tracking-wider bg-purple-50 text-hwsPurple">
-                                <i class="fa-solid fa-comments mr-1.5"></i>Community Reflection
+                                <i class="fa-solid fa-comments mr-1.5"></i>Community Live Whiteboard
                             </span>
                             <h3 class="text-3xl font-serif font-bold text-gray-900">The Community Prompt</h3>
-                            <p class="text-gray-600 text-sm">
+                            <p class="text-gray-600 text-sm font-serif">
                                 Participate in the continuous exchange of knowledge across campus. Post a quick answer to this week's question:
                             </p>
                         </div>
-                        <a href="https://canvas.hws.edu/courses/7846782/discussion_topics/26723598" target="_blank" rel="noopener noreferrer" class="self-start md:self-center bg-hwsPurple hover:bg-hwsPurple/90 text-white text-xs font-bold px-5 py-2.5 rounded-lg shadow-sm transition-all flex items-center whitespace-nowrap">
-                            <i class="fa-solid fa-graduation-cap mr-2"></i>Join Canvas Discussion
-                        </a>
+                        <div class="flex items-center space-x-2">
+                            <span id="live-indicator-dot" class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                            <span id="live-indicator-label" class="text-xs font-bold text-green-600 tracking-wider uppercase font-sans">LIVE COOPERATIVE BOARD ACTIVE</span>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                         <!-- Left: Input Form -->
                         <div class="md:col-span-5 bg-gray-50 border border-gray-100 p-5 rounded-2xl space-y-4">
-                            <h4 class="text-sm font-bold text-gray-800 leading-tight">
+                            <h4 class="text-sm font-bold text-gray-800 leading-tight font-serif">
                                 What is one human skill you think matters even more in an AI-shaped world?
                             </h4>
                             <div class="space-y-3">
@@ -551,7 +567,7 @@
                                 </div>
                                 <div class="flex space-x-2">
                                     <button onclick="postCommunityThought()" class="flex-1 bg-hwsPurple hover:bg-hwsPurple/95 text-white text-xs font-bold py-2.5 rounded-lg shadow transition-all">
-                                        Post Sandbox Card
+                                        Post to Live Whiteboard
                                     </button>
                                 </div>
                             </div>
@@ -560,8 +576,8 @@
                         <!-- Right: Interactive Live Sticky Board -->
                         <div class="md:col-span-7 space-y-3">
                             <div class="flex items-center justify-between">
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-gray-500">Local Sandbox Board</h4>
-                                <button onclick="clearCommunityBoard()" class="text-[10px] font-bold text-red-500 hover:text-red-700">Clear</button>
+                                <h4 class="text-xs font-bold uppercase tracking-widest text-gray-500">Live Workspace Board</h4>
+                                <button onclick="clearCommunityBoard()" class="text-[10px] font-bold text-red-500 hover:text-red-700">Clear Board</button>
                             </div>
                             <div id="sticky-board" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-80 overflow-y-auto pr-1">
                                 <!-- Dynamically filled cards will load here -->
@@ -577,14 +593,14 @@
                             <i class="fa-solid fa-book-bookmark mr-1.5"></i>Literary Circles
                         </span>
                         <h3 class="text-3xl font-serif font-bold text-gray-900">Fall AI Book Club</h3>
-                        <p class="text-gray-600 text-sm">
+                        <p class="text-gray-600 text-sm font-serif">
                             Would you be interested in participating in an AI-themed book club this fall? Cast your vote on our four featured selections.
                         </p>
                     </div>
 
                     <div class="flex justify-center">
                         <button onclick="switchTab('book-club')" class="bg-gradient-to-r from-hwsPurple to-hwsGreen hover:brightness-105 text-white text-xs font-bold px-6 py-3 rounded-lg shadow-md transition-all">
-                            Open Interactive Book Poll & Review CoVercards
+                            Open Interactive Book Poll & Review Books
                         </button>
                     </div>
                 </section>
@@ -601,7 +617,7 @@
                         <h3 class="text-3xl font-serif font-bold text-gray-900">
                             Digital Education Council (DEC) AI Literacy Framework
                         </h3>
-                        <p class="text-gray-600 text-sm mt-1">
+                        <p class="text-gray-600 text-sm mt-1 font-serif">
                             An evidence-backed, modular matrix structuring competencies into <strong>5 Dimensions</strong> and <strong>3 Progressive Levels</strong>. Click any item in the matrix below to see practical instructional interpretations and details.
                         </p>
                     </div>
@@ -617,7 +633,7 @@
                                     <th class="p-4 bg-blue-900 text-white text-center">Level 3: Expert</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-gray-100 text-xs">
+                            <tbody class="divide-y divide-gray-100 text-xs font-sans">
                                 
                                 <!-- Row 1 -->
                                 <tr class="hover:bg-gray-50/50 transition-colors">
@@ -627,7 +643,7 @@
                                                 <i class="fa-solid fa-server"></i>
                                             </div>
                                             <div>
-                                                <span class="block text-[9px] uppercase font-bold tracking-wider text-hwsGreen">Dim 1</span>
+                                                <span class="block text-[9px] uppercase font-bold tracking-wider text-hwsGreen font-sans">Dim 1</span>
                                                 <span class="font-serif">Understanding AI & Data</span>
                                             </div>
                                         </div>
@@ -651,7 +667,7 @@
                                                 <i class="fa-solid fa-brain"></i>
                                             </div>
                                             <div>
-                                                <span class="block text-[9px] uppercase font-bold tracking-wider text-red-500">Dim 2</span>
+                                                <span class="block text-[9px] uppercase font-bold tracking-wider text-red-500 font-sans">Dim 2</span>
                                                 <span class="font-serif">Critical Thinking</span>
                                             </div>
                                         </div>
@@ -675,7 +691,7 @@
                                                 <i class="fa-solid fa-scale-balanced"></i>
                                             </div>
                                             <div>
-                                                <span class="block text-[9px] uppercase font-bold tracking-wider text-hwsPurple">Dim 3</span>
+                                                <span class="block text-[9px] uppercase font-bold tracking-wider text-hwsPurple font-sans">Dim 3</span>
                                                 <span class="font-serif">Ethical & Responsible Use</span>
                                             </div>
                                         </div>
@@ -699,7 +715,7 @@
                                                 <i class="fa-solid fa-user-gear"></i>
                                             </div>
                                             <div>
-                                                <span class="block text-[9px] uppercase font-bold tracking-wider text-hwsOrange">Dim 4</span>
+                                                <span class="block text-[9px] uppercase font-bold tracking-wider text-hwsOrange font-sans">Dim 4</span>
                                                 <span class="font-serif">Human-Centricity & EQ</span>
                                             </div>
                                         </div>
@@ -723,7 +739,7 @@
                                                 <i class="fa-solid fa-award"></i>
                                             </div>
                                             <div>
-                                                <span class="block text-[9px] uppercase font-bold tracking-wider text-teal-600">Dim 5</span>
+                                                <span class="block text-[9px] uppercase font-bold tracking-wider text-teal-600 font-sans">Dim 5</span>
                                                 <span class="font-serif">Domain Expertise</span>
                                             </div>
                                         </div>
@@ -746,11 +762,11 @@
                     <!-- Dynamic Node Explainer Display -->
                     <div id="matrix-explainer-box" class="bg-gradient-to-r from-gray-50 to-gray-100/50 p-6 rounded-2xl border border-gray-100 space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold uppercase tracking-widest text-hwsPurple" id="explainer-badge">Click a matrix node to start</span>
-                            <span class="text-xs text-gray-400" id="explainer-coords">Node: [None]</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-hwsPurple font-sans" id="explainer-badge">Click a matrix node to start</span>
+                            <span class="text-xs text-gray-400 font-sans" id="explainer-coords">Node: [None]</span>
                         </div>
-                        <h4 class="text-lg font-bold text-gray-800" id="explainer-title">Framework Node Information</h4>
-                        <p class="text-sm text-gray-600 leading-relaxed" id="explainer-text">
+                        <h4 class="text-lg font-bold text-gray-800 font-serif" id="explainer-title">Framework Node Information</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed font-serif" id="explainer-text">
                             Selecting an educational marker shows you its practical definition and the skill standard designed by the Digital Education Council to guide modern university training.
                         </p>
                     </div>
@@ -768,7 +784,7 @@
                             <h3 class="text-3xl font-serif font-bold text-gray-900">
                                 July AI Challenge: Interactive Workbook
                             </h3>
-                            <p class="text-gray-500 text-sm mt-1">
+                            <p class="text-gray-500 text-sm mt-1 font-serif">
                                 Check prompts off, write local reflections, and export your personal workbook.
                             </p>
                         </div>
@@ -806,10 +822,10 @@
                         <div class="border border-gray-100 bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all space-y-4">
                             <div class="flex items-start justify-between">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 rounded-lg bg-orange-50 text-hwsOrange flex items-center justify-center font-bold text-lg">W1</div>
+                                    <div class="w-10 h-10 rounded-lg bg-orange-50 text-hwsOrange flex items-center justify-center font-bold text-lg font-serif">W1</div>
                                     <div>
                                         <h4 class="font-serif font-bold text-lg text-gray-900">🏖️ Week 1: AI Beach Read</h4>
-                                        <p class="text-xs text-gray-500">Practice summarizing and filtering information on the fly.</p>
+                                        <p class="text-xs text-gray-500 font-serif">Practice summarizing and filtering information on the fly.</p>
                                     </div>
                                 </div>
                                 <input type="checkbox" id="w1-check" onchange="updateWorkbookProgress(1)" class="w-6 h-6 rounded border-gray-300 text-hwsOrange focus:ring-hwsOrange cursor-pointer">
@@ -829,8 +845,8 @@
 
                             <!-- User Reflection Input -->
                             <div class="space-y-2">
-                                <label class="block text-xs font-bold text-gray-700">Your Reflection Response:</label>
-                                <p class="text-xs text-gray-500">What did AI help you notice? What did it miss? What assumptions is it making?</p>
+                                <label class="block text-xs font-bold text-gray-700 font-serif">Your Reflection Response:</label>
+                                <p class="text-xs text-gray-500 font-serif">What did AI help you notice? What did it miss? What assumptions is it making?</p>
                                 <textarea id="w1-reflect" onkeyup="saveReflection(1)" rows="3" placeholder="Type your thoughts here... (autosaved locally)" class="w-full text-xs p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-hwsOrange bg-white"></textarea>
                             </div>
                         </div>
@@ -839,10 +855,10 @@
                         <div class="border border-gray-100 bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all space-y-4">
                             <div class="flex items-start justify-between">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 rounded-lg bg-orange-50 text-hwsOrange flex items-center justify-center font-bold text-lg">W2</div>
+                                    <div class="w-10 h-10 rounded-lg bg-orange-50 text-hwsOrange flex items-center justify-center font-bold text-lg font-serif">W2</div>
                                     <div>
                                         <h4 class="font-serif font-bold text-lg text-gray-900">🧴 Week 2: Syllabus Sunscreen</h4>
-                                        <p class="text-xs text-gray-500">Review language with a focus on student clarity and accessibility.</p>
+                                        <p class="text-xs text-gray-500 font-serif">Review language with a focus on student clarity and accessibility.</p>
                                     </div>
                                 </div>
                                 <input type="checkbox" id="w2-check" onchange="updateWorkbookProgress(2)" class="w-6 h-6 rounded border-gray-300 text-hwsOrange focus:ring-hwsOrange cursor-pointer">
@@ -862,8 +878,8 @@
 
                             <!-- User Reflection Input -->
                             <div class="space-y-2">
-                                <label class="block text-xs font-bold text-gray-700">Your Reflection Response:</label>
-                                <p class="text-xs text-gray-500">Which suggestions felt right? Which ones missed your voice or your students?</p>
+                                <label class="block text-xs font-bold text-gray-700 font-serif">Your Reflection Response:</label>
+                                <p class="text-xs text-gray-500 font-serif">Which suggestions felt right? Which ones missed your voice or your students?</p>
                                 <textarea id="w2-reflect" onkeyup="saveReflection(2)" rows="3" placeholder="Type your thoughts here... (autosaved locally)" class="w-full text-xs p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-hwsOrange bg-white"></textarea>
                             </div>
                         </div>
@@ -872,10 +888,10 @@
                         <div class="border border-gray-100 bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all space-y-4">
                             <div class="flex items-start justify-between">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 rounded-lg bg-orange-50 text-hwsOrange flex items-center justify-center font-bold text-lg">W3</div>
+                                    <div class="w-10 h-10 rounded-lg bg-orange-50 text-hwsOrange flex items-center justify-center font-bold text-lg font-serif">W3</div>
                                     <div>
                                         <h4 class="font-serif font-bold text-lg text-gray-900">🛟 Week 3: Lazy River Brainstorm</h4>
-                                        <p class="text-xs text-gray-500">Pick one activity, discussion, or assignment that feels stale.</p>
+                                        <p class="text-xs text-gray-500 font-serif">Pick one activity, discussion, or assignment that feels stale.</p>
                                     </div>
                                 </div>
                                 <input type="checkbox" id="w3-check" onchange="updateWorkbookProgress(3)" class="w-6 h-6 rounded border-gray-300 text-hwsOrange focus:ring-hwsOrange cursor-pointer">
@@ -895,8 +911,8 @@
 
                             <!-- User Reflection Input -->
                             <div class="space-y-2">
-                                <label class="block text-xs font-bold text-gray-700">Your Reflection Response:</label>
-                                <p class="text-xs text-gray-500">Which idea surprised you? Which one could you actually try this fall?</p>
+                                <label class="block text-xs font-bold text-gray-700 font-serif">Your Reflection Response:</label>
+                                <p class="text-xs text-gray-500 font-serif">Which idea surprised you? Which one could you actually try this fall?</p>
                                 <textarea id="w3-reflect" onkeyup="saveReflection(3)" rows="3" placeholder="Type your thoughts here... (autosaved locally)" class="w-full text-xs p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-hwsOrange bg-white"></textarea>
                             </div>
                         </div>
@@ -905,10 +921,10 @@
                         <div class="border border-gray-100 bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all space-y-4">
                             <div class="flex items-start justify-between">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 rounded-lg bg-orange-50 text-hwsOrange flex items-center justify-center font-bold text-lg">W4</div>
+                                    <div class="w-10 h-10 rounded-lg bg-orange-50 text-hwsOrange flex items-center justify-center font-bold text-lg font-serif">W4</div>
                                     <div>
                                         <h4 class="font-serif font-bold text-lg text-gray-900">🔥 Week 4: Campfire Reflection</h4>
-                                        <p class="text-xs text-gray-500">Close out the month by using AI as an introspective thinking partner.</p>
+                                        <p class="text-xs text-gray-500 font-serif">Close out the month by using AI as an introspective thinking partner.</p>
                                     </div>
                                 </div>
                                 <input type="checkbox" id="w4-check" onchange="updateWorkbookProgress(4)" class="w-6 h-6 rounded border-gray-300 text-hwsOrange focus:ring-hwsOrange cursor-pointer">
@@ -928,8 +944,8 @@
 
                             <!-- User Reflection Input -->
                             <div class="space-y-2">
-                                <label class="block text-xs font-bold text-gray-700">Your Reflection Response:</label>
-                                <p class="text-xs text-gray-500">What did you learn about your own goals? What's the one small change worth committing to?</p>
+                                <label class="block text-xs font-bold text-gray-700 font-serif">Your Reflection Response:</label>
+                                <p class="text-xs text-gray-500 font-serif">What did you learn about your own goals? What's the one small change worth committing to?</p>
                                 <textarea id="w4-reflect" onkeyup="saveReflection(4)" rows="3" placeholder="Type your thoughts here... (autosaved locally)" class="w-full text-xs p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-hwsOrange bg-white"></textarea>
                             </div>
                         </div>
@@ -938,7 +954,7 @@
                 </div>
             </div>
 
-            <!-- TAB 4: BOOK CLUB POLL -->
+            <!-- TAB 4: BOOK CLUB POLL (Focused Exclusively on Live Survey Embed) -->
             <div id="tab-content-book-club" class="tab-pane hidden space-y-8">
                 <div class="bg-white rounded-3xl border border-gray-100 p-6 md:p-8 shadow-sm space-y-6">
                     <div>
@@ -948,16 +964,16 @@
                         <h3 class="text-3xl font-serif font-bold text-gray-900">
                             HWS Fall AI Book Club Survey
                         </h3>
-                        <p class="text-gray-500 text-sm mt-1">
-                            Cast your vote for the book you'd be most interested in reading during our Fall semester circle. See real-time sandbox stats instantly.
+                        <p class="text-gray-500 text-sm mt-1 font-serif">
+                            Cast your vote for the book you'd be most interested in reading during our Fall semester circle. Responses are securely captured by our institutional Microsoft poll.
                         </p>
                     </div>
 
                     <!-- EMBEDDED LIVE MICROSOFT SURVEY -->
                     <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-md bg-gray-50">
                         <div class="bg-gradient-to-r from-hwsPurple to-hwsGreen p-4 text-white text-xs font-bold flex items-center justify-between">
-                            <span class="flex items-center"><i class="fa-solid fa-square-poll-horizontal mr-2 text-sm"></i>Official Fall AI Book Club Poll</span>
-                            <span class="flex items-center text-[10px] bg-white/20 px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse mr-1.5"></span>Live Connection Active</span>
+                            <span class="flex items-center font-sans"><i class="fa-solid fa-square-poll-horizontal mr-2 text-sm"></i>Official Fall AI Book Club Poll</span>
+                            <span class="flex items-center text-[10px] bg-white/20 px-2.5 py-1 rounded-full font-sans"><span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse mr-1.5"></span>Live Connection Active</span>
                         </div>
                         <iframe src="https://forms.cloud.microsoft/pages/responsepage.aspx?id=PMS96d1d9E-ic7KYDt0Dg9fP6Z24Rb5JuyYKBd6okFBUNFlRS1JMR05BNlBWWkw1NU40ODIxRzRMWC4u&route=shorturl" class="w-full h-[650px] border-0" allowfullscreen title="HWS Fall AI Book Club Survey"></iframe>
                     </div>
@@ -967,7 +983,7 @@
                         <button onclick="launchLiveSurvey()" class="bg-hwsGreen hover:bg-hwsGreen/90 text-white text-xs font-bold px-8 py-3 rounded-lg shadow-md transition-all flex items-center">
                             <i class="fa-solid fa-external-link mr-2"></i> Open Survey in New Tab
                         </button>
-                        <p class="text-xs text-gray-400">If the form above doesn't render on your browser, click "Open Survey in New Tab" to load it securely.</p>
+                        <p class="text-xs text-gray-400 font-serif">If the form above doesn't render correctly on your device, click the button to load it securely inside a new page.</p>
                     </div>
                 </div>
             </div>
@@ -985,13 +1001,13 @@
             </div>
             <div class="max-w-xl mx-auto space-y-2">
                 <h4 class="font-serif font-bold text-lg text-gray-900">Interested in helping shape future issues?</h4>
-                <p class="text-xs text-gray-600 leading-relaxed">
+                <p class="text-xs text-gray-600 leading-relaxed font-serif">
                     We would love for this newsletter to become a shared community effort. If you would like to suggest a topic, share an classroom example, recommend a resource, assist with the AI Book Club, or play a role in editing future editions, please reach out.
                 </p>
             </div>
             <div class="inline-flex items-center space-x-2 bg-white px-4 py-2 border border-gray-100 rounded-full shadow-sm text-xs font-semibold text-gray-700">
                 <i class="fa-regular fa-envelope text-hwsPurple"></i>
-                <span>Email Coordinator:</span>
+                <span class="font-serif">Email Coordinator:</span>
                 <a href="mailto:sgobe@hws.edu" class="text-hwsPurple hover:underline">sgobe@hws.edu</a>
             </div>
             <div class="text-[10px] text-gray-400 pt-4">
@@ -1001,38 +1017,44 @@
     </footer>
 
     <!-- INTERACTIVE SCRIPTS & LOGIC CONTROLLER -->
-    <script>
-        // =========================================================================
-        // INSTITUTIONAL INTEGRATION SETTINGS
-        // Update these URLs to point directly to your live HWS systems!
-        // =========================================================================
-        const LIVE_SURVEY_URL = "https://forms.cloud.microsoft/pages/responsepage.aspx?id=PMS96d1d9E-ic7KYDt0Dg9fP6Z24Rb5JuyYKBd6okFBUNFlRS1JMR05BNlBWWkw1NU40ODIxRzRMWC4u&route=shorturl"; // Replace with your Microsoft Forms, Qualtrics, or Google Forms link
-        const CANVAS_LINK = "https://canvas.hws.edu/courses/7846782/discussion_topics/26723598";
-        // =========================================================================
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot, collection, query, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Global State Manager
+        // Constants and URLs
+        const LIVE_SURVEY_URL = "https://forms.cloud.microsoft/pages/responsepage.aspx?id=PMS96d1d9E-ic7KYDt0Dg9fP6Z24Rb5JuyYKBd6okFBUNFlRS1JMR05BNlBWWkw1NU40ODIxRzRMWC4u&route=shorturl";
+        const CANVAS_LINK_CHALLENGE = "https://canvas.hws.edu/courses/7846782/discussion_topics/26741460";
+
+        // Global State variables
         let currentTab = 'newsletter';
-        let currentTextSize = 16; // Standard reading font pixel size
+        let currentTextSize = 16;
         let selectedBookId = null;
-        
-        // Setup mock default dataset for local sandbox environment
-        const defaultBookClubStats = {
-            1: 35, // Co-Intelligence
-            2: 25, // Empire of AI
-            3: 25, // Klara
-            4: 15, // A Psalm
-            5: 0,  // No preference
-            6: 0   // Not interested
-        };
+        let app, db, auth;
+        let isFirebaseConfigured = false;
+        let appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
-        const defaultCommunityThoughts = [
-            { name: "Dean Alumna", text: "Active listening and synthesizing diverse perspectives in group work." },
-            { name: "Prof. Geneva", text: "Ethical discernment and the wisdom to question data sources." },
-            { name: "Admissions Team", text: "Personal counseling, direct human empathy, and relationship building." },
-            { name: "HWS Tech Specialist", text: "Formulating deeper questions and understanding institutional contexts." }
+        // Firebase Setup Block with Robust Fallback for Preview environment
+        try {
+            if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+                const firebaseConfig = JSON.parse(__firebase_config);
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                isFirebaseConfigured = true;
+            }
+        } catch (e) {
+            console.warn("Firebase failed to initialize. Running on local simulator storage.", e);
+        }
+
+        // Setup mock default local thoughts database if server cannot be reached
+        const initialSimulatedThoughts = [
+            { id: "1", name: "Dean Alumna", text: "Active listening and synthesizing diverse perspectives in group work.", timestamp: Date.now() - 100000 },
+            { id: "2", name: "Prof. Geneva", text: "Ethical discernment and the wisdom to question data sources.", timestamp: Date.now() - 50000 },
+            { id: "3", name: "HWS Specialist", text: "Formulating deeper questions and understanding institutional contexts.", timestamp: Date.now() - 10000 }
         ];
 
-        // DEC Matrix Explainer Node Data
+        // DEC Matrix Explainer Node Data Map
         const matrixData = {
             "1,1": { title: "AI and Data Awareness (Dim 1, Level 1)", text: "Basic conceptual understanding of artificial intelligence, databases, algorithms, and models. Recognizing common interfaces and simple data queries.", badge: "Basic Literacy" },
             "1,2": { title: "AI and Data in Action (Dim 1, Level 2)", text: "Operational deployment of analytical and generative algorithms. Knowing how to construct datasets, upload assets, and map operational prompts.", badge: "Active Deployment" },
@@ -1052,25 +1074,46 @@
             
             "5,1": { title: "Applied AI Awareness (Dim 5, Level 1)", text: "Recognizing how automated software is currently used within specific disciplines (e.g., automated coding, medical imaging, translation tools).", badge: "Context Aware" },
             "5,2": { title: "AI Application in Contexts (Dim 5, Level 2)", text: "Leveraging domain knowledge (e.g., historical analysis, scientific testing) to optimize, guide, and instruct tools for accurate professional results.", badge: "Domain Expert User" },
-            "5,3": { title: "Strategic AI Leadership (Dim 5, Level 3)", text: "Pioneering new professional workflows, creating custom algorithms for research, and leading change management in high-level institutional systems.", badge: "Strategic Innovator" }
+            "5,3": { title: "Strategic AI Leadership (Dim 5, Level 3)", text: "Strategic AI leadership: Pioneering new professional workflows, creating custom algorithms for research, and leading change management in high-level institutional systems.", badge: "Strategic Innovator" }
         };
 
-        // On Page Load Initialization
-        window.onload = function() {
+        // UI Initialization On Load Event
+        window.addEventListener('load', async () => {
             initLocalStorageData();
-            renderCommunityBoard();
-            // Load initial workbook state
             loadWorkbookState();
-        };
+            await startLiveBroadcasterSubscription();
+        });
 
-        // Initialize Local Storage structures
         function initLocalStorageData() {
             if (!localStorage.getItem('hws_community_thoughts')) {
-                localStorage.setItem('hws_community_thoughts', JSON.stringify(defaultCommunityThoughts));
+                localStorage.setItem('hws_community_thoughts', JSON.stringify(initialSimulatedThoughts));
             }
-            if (!localStorage.getItem('hws_book_club_stats')) {
-                localStorage.setItem('hws_book_club_stats', JSON.stringify(defaultBookClubStats));
-            }
+        }
+
+        // Animated custom modal handler (replaces browser confirm)
+        function showCustomModal(title, body, confirmCallback) {
+            const modal = document.getElementById('alert-modal');
+            const mTitle = document.getElementById('modal-title');
+            const mBody = document.getElementById('modal-body');
+            const btnCancel = document.getElementById('modal-btn-cancel');
+            const btnConfirm = document.getElementById('modal-btn-confirm');
+
+            mTitle.innerText = title;
+            mBody.innerText = body;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            const closeModal = () => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            };
+
+            btnCancel.onclick = closeModal;
+            btnConfirm.onclick = () => {
+                confirmCallback();
+                closeModal();
+            };
         }
 
         // Display Custom Animated Notification Toast
@@ -1089,12 +1132,10 @@
                 icon.className = "fa-solid fa-circle-exclamation text-xs text-white";
             }
 
-            // Animate In
             toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
             toast.classList.add('translate-y-0', 'opacity-100');
 
             setTimeout(() => {
-                // Animate Out
                 toast.classList.add('translate-y-12', 'opacity-0', 'pointer-events-none');
                 toast.classList.remove('translate-y-0', 'opacity-100');
             }, 3500);
@@ -1102,27 +1143,22 @@
 
         // Swaps Navigation Tabs smoothly
         function switchTab(tabId) {
-            // Hide all tab panes
             const panes = document.querySelectorAll('.tab-pane');
             panes.forEach(p => p.classList.add('hidden'));
             
-            // Show selected pane
             const selectedPane = document.getElementById(`tab-content-${tabId}`);
             if (selectedPane) selectedPane.classList.remove('hidden');
 
-            // Reset desktop tab button UI
             const tabButtons = document.querySelectorAll('.tab-btn');
             tabButtons.forEach(btn => {
                 btn.className = "tab-btn px-4 py-2 text-xs font-semibold rounded-lg transition-all duration-200 text-gray-600 hover:text-gray-900";
             });
 
-            // Set active desktop tab button style
             const activeBtn = document.getElementById(`tab-btn-${tabId}`);
             if (activeBtn) {
                 activeBtn.className = "tab-btn px-4 py-2 text-xs font-semibold rounded-lg transition-all duration-200 bg-white text-hwsPurple shadow-sm border border-gray-100";
             }
 
-            // Reset mobile tab buttons UI
             const mobButtons = document.querySelectorAll('.mob-tab-btn');
             mobButtons.forEach(btn => {
                 btn.className = "mob-tab-btn flex-shrink-0 px-3 py-1.5 text-xs font-semibold rounded-lg text-gray-600";
@@ -1171,7 +1207,7 @@
             
             cards.forEach(card => {
                 const title = card.querySelector('h5').innerText.toLowerCase();
-                const text = card.querySelector('p').innerText.toLowerCase();
+                const text = card.querySelector('div').innerText.toLowerCase();
                 if (title.includes(query) || text.includes(query)) {
                     card.classList.remove('hidden');
                 } else {
@@ -1186,22 +1222,18 @@
             const data = matrixData[key];
             const explainer = document.getElementById('matrix-explainer-box');
             
-            // Remove highlighting from all cells
             const cells = document.querySelectorAll('.matrix-cell');
             cells.forEach(c => {
                 c.classList.remove('bg-hwsPurple', 'text-white', 'ring-2', 'ring-hwsPurple');
                 c.classList.add('bg-white', 'text-gray-700');
             });
 
-            // Find current clicked cell in the DOM (approximate match via text value)
             if (data) {
-                // Style explainer card content dynamically
                 document.getElementById('explainer-badge').innerText = data.badge;
                 document.getElementById('explainer-coords').innerText = `Dimension ${row}, Level ${col}`;
                 document.getElementById('explainer-title').innerText = data.title;
                 document.getElementById('explainer-text').innerText = data.text;
                 
-                // Styling box with subtle highlight focus
                 explainer.classList.remove('from-gray-50', 'to-gray-100/50');
                 explainer.classList.add('from-indigo-50/70', 'to-green-50/70');
                 
@@ -1251,14 +1283,14 @@
 
         // Reset Tracker
         function resetChallenge() {
-            if (confirm("Resetting your workbook clears completed checkmarks and reflections stored on this device. Continue?")) {
+            showCustomModal("Reset Your Progress?", "This clears all completed checkmarks and reflection responses from this device.", () => {
                 for (let i = 1; i <= 4; i++) {
                     localStorage.removeItem(`hws_challenge_w${i}_checked`);
                     localStorage.removeItem(`hws_challenge_w${i}_reflection`);
                 }
                 loadWorkbookState();
                 showToast("Tracker reset successfully.");
-            }
+            });
         }
 
         // Downloads formatted Professional Development Report
@@ -1294,122 +1326,176 @@
             showToast("Report download started successfully.");
         }
 
-        // Card Selection inside the Book Club tab
-        function selectBook(id) {
-            selectedBookId = id;
-            
-            // Clear current styled active frames
-            const cards = document.querySelectorAll('.book-card');
-            cards.forEach(c => {
-                c.classList.remove('ring-4', 'ring-hwsPurple', 'border-transparent');
-                c.classList.add('border-gray-200');
-            });
-            
-            const radios = document.querySelectorAll('[id^="book-radio-"]');
-            radios.forEach(r => {
-                r.innerHTML = "";
-                r.className = "w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center";
-            });
-
-            // Highlight selected card
-            const selectedCard = document.getElementById(`book-card-${id}`);
-            if (selectedCard) {
-                selectedCard.classList.add('ring-4', 'ring-hwsPurple', 'border-transparent');
-                selectedCard.classList.remove('border-gray-200');
-            }
-
-            const selectedRadio = document.getElementById(`book-radio-${id}`);
-            if (selectedRadio) {
-                selectedRadio.className = "w-5 h-5 rounded-full border-2 border-hwsPurple bg-white flex items-center justify-center flex-shrink-0";
-                selectedRadio.innerHTML = `<span class="w-2.5 h-2.5 bg-hwsPurple rounded-full"></span>`;
-            }
-
-            showToast("Selected preference. Click submit to cast vote.");
-        }
-
-        // Submit the Book Club vote to Sandbox Stats
-        function submitBookClubVote() {
-            if (!selectedBookId) {
-                showToast("Please choose a book or preference select-label before voting.", false);
-                return;
-            }
-
-            // Retrieve current stats
-            const stats = JSON.parse(localStorage.getItem('hws_book_club_stats')) || defaultBookClubStats;
-            
-            // Increment
-            stats[selectedBookId]++;
-            localStorage.setItem('hws_book_club_stats', JSON.stringify(stats));
-
-            // Sum up total votes
-            let total = 0;
-            Object.values(stats).forEach(v => total += v);
-
-            // Re-render percentages on UI
-            for (let i = 1; i <= 4; i++) {
-                const pct = Math.round((stats[i] / total) * 100);
-                const el = document.getElementById(`book-percentage-${i}`);
-                if (el) el.innerText = `${pct}% of votes`;
-            }
-
-            showToast("Preference submitted to sandbox! Real-time stats recalculated.");
-        }
-
-        // Displays thoughts stored in local storage
-        function renderCommunityBoard() {
-            const board = document.getElementById('sticky-board');
-            const thoughts = JSON.parse(localStorage.getItem('hws_community_thoughts')) || defaultCommunityThoughts;
-            
-            board.innerHTML = "";
-            thoughts.forEach(t => {
-                const author = t.name ? t.name : "Anonymous Colleague";
-                board.innerHTML += `
-                    <div class="bg-amber-50/50 border border-amber-100 rounded-xl p-4 shadow-sm relative space-y-2 transform hover:rotate-1 transition-transform">
-                        <span class="absolute top-2 right-2 text-xs">📌</span>
-                        <p class="text-xs text-gray-700 italic font-serif">"${t.text}"</p>
-                        <p class="text-[10px] font-bold text-hwsPurple text-right">— ${author}</p>
-                    </div>
-                `;
-            });
-        }
-
-        // Posts new community thought
-        function postCommunityThought() {
-            const authorInput = document.getElementById('board-name');
-            const textInput = document.getElementById('board-thought');
-
-            if (!textInput.value.trim()) {
-                showToast("Please write a thought response first.", false);
-                return;
-            }
-
-            const thoughts = JSON.parse(localStorage.getItem('hws_community_thoughts')) || defaultCommunityThoughts;
-            thoughts.unshift({
-                name: authorInput.value.trim(),
-                text: textInput.value.trim()
-            });
-
-            localStorage.setItem('hws_community_thoughts', JSON.stringify(thoughts));
-            renderCommunityBoard();
-            
-            // Clear Inputs
-            authorInput.value = "";
-            textInput.value = "";
-            showToast("Thought posted locally. Remember to add it to Canvas, too!");
-        }
-
         // Launches the live external survey link
         function launchLiveSurvey() {
             window.open(LIVE_SURVEY_URL, '_blank');
         }
 
-        // Clears Community Board Sandbox
-        function clearCommunityBoard() {
-            if (confirm("Reset local campus community thoughts sandbox?")) {
-                localStorage.setItem('hws_community_thoughts', JSON.stringify(defaultCommunityThoughts));
-                renderCommunityBoard();
-                showToast("Sandbox reset.");
+        // =========================================================================
+        // REALTIME FIREBASE AND COOPERATIVE WORKSPACE BOARD CONTROLLER
+        // =========================================================================
+        async function startLiveBroadcasterSubscription() {
+            if (isFirebaseConfigured) {
+                try {
+                    // Always Authenticate Before Interacting with Firestore Paths
+                    let user;
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        const credential = await signInWithCustomToken(auth, __initial_auth_token);
+                        user = credential.user;
+                    } else {
+                        const credential = await signInAnonymously(auth);
+                        user = credential.user;
+                    }
+
+                    if (!user) {
+                        setupSimulationBoard();
+                        return;
+                    }
+
+                    // Strict collection path rules: /artifacts/{appId}/public/data/community_thoughts
+                    const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'community_thoughts');
+                    
+                    // Simple query only to adhere to Rule 2 (No Complex queries)
+                    onSnapshot(colRef, (snapshot) => {
+                        const liveThoughts = [];
+                        snapshot.forEach(doc => {
+                            liveThoughts.push({ id: doc.id, ...doc.data() });
+                        });
+                        
+                        // Sort inside memory safely using a client-side javascript sorting mechanism
+                        liveThoughts.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+                        renderActiveBoardUI(liveThoughts);
+                    }, (err) => {
+                        console.error("Firestore listener error, fallback active.", err);
+                        setupSimulationBoard();
+                    });
+
+                } catch (e) {
+                    console.error("Authentication or Firestore setup failed, booting local fallback board.", e);
+                    setupSimulationBoard();
+                }
+            } else {
+                setupSimulationBoard();
             }
+        }
+
+        function setupSimulationBoard() {
+            // Adjust indicator color and title back to Local/Simulation layout gracefully
+            const indicatorDot = document.getElementById('live-indicator-dot');
+            const indicatorLabel = document.getElementById('live-indicator-label');
+            
+            if (indicatorDot && indicatorLabel) {
+                indicatorDot.className = "w-2 h-2 bg-amber-500 rounded-full animate-pulse";
+                indicatorLabel.innerText = "LOCAL SANBOX WHITEBOARD ACTIVE";
+                indicatorLabel.className = "text-xs font-bold text-amber-600 tracking-wider uppercase font-sans";
+            }
+            
+            // Read simulated collection
+            const simulatedThoughts = JSON.parse(localStorage.getItem('hws_community_thoughts')) || initialSimulatedThoughts;
+            simulatedThoughts.sort((a, b) => b.timestamp - a.timestamp);
+            renderActiveBoardUI(simulatedThoughts);
+        }
+
+        function renderActiveBoardUI(thoughts) {
+            const board = document.getElementById('sticky-board');
+            if (!board) return;
+
+            board.innerHTML = "";
+            if (thoughts.length === 0) {
+                board.innerHTML = `
+                    <div class="col-span-1 sm:col-span-2 text-center py-8 text-gray-400 text-xs italic font-serif">
+                        Be the first to share your thoughts with the HWS community!
+                    </div>
+                `;
+                return;
+            }
+
+            thoughts.forEach(t => {
+                const author = t.name ? t.name : "Anonymous Colleague";
+                board.innerHTML += `
+                    <div class="bg-amber-50/50 border border-amber-100 rounded-xl p-4 shadow-sm relative space-y-2 transform hover:rotate-1 transition-transform">
+                        <span class="absolute top-2 right-2 text-xs">📌</span>
+                        <p class="text-xs text-gray-700 italic font-serif">"${escapeHTML(t.text)}"</p>
+                        <p class="text-[10px] font-bold text-hwsPurple text-right font-sans">— ${escapeHTML(author)}</p>
+                    </div>
+                `;
+            });
+        }
+
+        // Post community thought to cloud
+        async function postCommunityThought() {
+            const authorInput = document.getElementById('board-name');
+            const textInput = document.getElementById('board-thought');
+
+            const name = authorInput.value.trim();
+            const text = textInput.value.trim();
+
+            if (!text) {
+                showToast("Please write a response first.", false);
+                return;
+            }
+
+            const docId = crypto.randomUUID();
+            const timestamp = Date.now();
+
+            if (isFirebaseConfigured && auth && auth.currentUser) {
+                try {
+                    // Set Doc directly in: /artifacts/{appId}/public/data/community_thoughts/{docId}
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'community_thoughts', docId);
+                    await setDoc(docRef, {
+                        name: name,
+                        text: text,
+                        timestamp: timestamp,
+                        userId: auth.currentUser.uid
+                    });
+                    
+                    authorInput.value = "";
+                    textInput.value = "";
+                    showToast("Your thought has been posted live across HWS!");
+                } catch (e) {
+                    console.error("Firestore submit error. Submitting locally.", e);
+                    saveToLocalSimulatedBoard(name, text, timestamp);
+                }
+            } else {
+                saveToLocalSimulatedBoard(name, text, timestamp);
+            }
+        }
+
+        function saveToLocalSimulatedBoard(name, text, timestamp) {
+            const thoughts = JSON.parse(localStorage.getItem('hws_community_thoughts')) || initialSimulatedThoughts;
+            thoughts.unshift({
+                id: crypto.randomUUID(),
+                name: name,
+                text: text,
+                timestamp: timestamp
+            });
+            localStorage.setItem('hws_community_thoughts', JSON.stringify(thoughts));
+            setupSimulationBoard();
+            
+            document.getElementById('board-name').value = "";
+            document.getElementById('board-thought').value = "";
+            showToast("Thought posted locally onto your whiteboard!");
+        }
+
+        function clearCommunityBoard() {
+            showCustomModal("Reset Live Sandbox?", "This clears the localized board submissions. (If cloud-connected, database writes require permissions).", async () => {
+                if (isFirebaseConfigured) {
+                    // For cloud, warn user that database records are managed by system administrators.
+                    showToast("Cloud history reset requires administrator authorization.", false);
+                }
+                
+                // Clear simulated cache anyway
+                localStorage.setItem('hws_community_thoughts', JSON.stringify([]));
+                setupSimulationBoard();
+                showToast("Local sandbox cleared.");
+            });
+        }
+
+        function escapeHTML(str) {
+            if (!str) return '';
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
         }
 
         // Robust Clipboard copy function utilizing fallback logic
@@ -1423,7 +1509,6 @@
                 textToCopy = textEl.value;
             }
 
-            // Create temporary textarea for execCommand fallback
             const tempTextArea = document.createElement("textarea");
             tempTextArea.value = textToCopy;
             document.body.appendChild(tempTextArea);
@@ -1442,6 +1527,21 @@
             
             document.body.removeChild(tempTextArea);
         }
+
+        // Bind events to window object since scripts are loaded as modular ES6 imports
+        window.switchTab = switchTab;
+        window.adjustTextSize = adjustTextSize;
+        window.toggleThemeDetails = toggleThemeDetails;
+        window.filterThemes = filterThemes;
+        window.selectMatrixNode = selectMatrixNode;
+        window.saveReflection = saveReflection;
+        window.updateWorkbookProgress = updateWorkbookProgress;
+        window.resetChallenge = resetChallenge;
+        window.downloadWorkbookReport = downloadWorkbookReport;
+        window.launchLiveSurvey = launchLiveSurvey;
+        window.postCommunityThought = postCommunityThought;
+        window.clearCommunityBoard = clearCommunityBoard;
+        window.copyToClipboard = copyToClipboard;
     </script>
 </body>
 </html>
