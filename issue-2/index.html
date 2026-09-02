@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Prompt: AI at Hobart and William Smith Colleges, Issue No. 2, September 2026">
+  <title>The Prompt | Issue No. 2 | September 2026</title>
+  <style>
+    :root{
+      --hws-purple:#510C76;
+      --deep-purple:#201345;
+      --orange:#F26724;
+      --green:#006937;
+      --cream:#F7F4FA;
+      --ink:#251F2B;
+      --muted:#6F6675;
+      --white:#FFFFFF;
+      --line:#DED6E4;
+      --light-purple:#F0EAF4;
+      --light-green:#EAF4EF;
+      --light-orange:#FFF0E8;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--ink);
+      background:#f6f3f8;
+      line-height:1.65;
+    }
+
+    a{color:var(--hws-purple);text-decoration-thickness:1.5px;text-underline-offset:3px;}
+    a:hover{color:var(--orange);}
+    a:focus-visible,
+    button:focus-visible{
+      outline:3px solid var(--orange);
+      outline-offset:3px;
+    }
+
+    .site-header{
+      background:var(--deep-purple);
+      color:var(--white);
+      border-bottom:6px solid var(--orange);
+    }
+
+    .header-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:28px 24px 24px;
+      display:flex;
+      gap:24px;
+      align-items:end;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .brand-kicker{
+      margin:0 0 3px;
+      font-size:.76rem;
+      letter-spacing:.19em;
+      text-transform:uppercase;
+      font-weight:700;
+      color:#eadff0;
+    }
+
+    .brand-title{
+      margin:0;
+      font-size:clamp(2rem,5vw,4rem);
+      letter-spacing:.02em;
+      line-height:1;
+    }
+
+    .brand-subtitle{
+      margin:8px 0 0;
+      font-size:1rem;
+      color:#e8e1ec;
+    }
+
+    .issue-badge{
+      border:2px solid var(--white);
+      padding:10px 14px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:.82rem;
+      white-space:nowrap;
+    }
+
+    .nav-wrap{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:5;
+    }
+
+    nav{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      gap:8px;
+      padding:10px 20px;
+      overflow-x:auto;
+      scrollbar-width:thin;
+    }
+
+    nav a{
+      text-decoration:none;
+      font-size:.85rem;
+      font-weight:700;
+      padding:8px 11px;
+      border-radius:999px;
+      white-space:nowrap;
+      color:var(--deep-purple);
+    }
+    nav a:hover{background:var(--light-purple);}
+
+    main{
+      max-width:1100px;
+      margin:0 auto;
+      padding:34px 24px 70px;
+    }
+
+    .hero{
+      background:var(--white);
+      border:1px solid var(--line);
+      padding:clamp(28px,5vw,52px);
+      margin-bottom:28px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0 auto 0 0;
+      width:9px;
+      background:linear-gradient(var(--orange) 0 33%, var(--green) 33% 66%, var(--hws-purple) 66%);
+    }
+
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      font-size:.75rem;
+      font-weight:800;
+      color:var(--orange);
+      margin:0 0 8px;
+    }
+
+    h2,h3,h4{
+      line-height:1.2;
+      color:var(--deep-purple);
+    }
+
+    h2{
+      margin:0 0 16px;
+      font-size:clamp(1.75rem,4vw,2.65rem);
+    }
+
+    h3{
+      margin:0 0 10px;
+      font-size:1.3rem;
+    }
+
+    h4{
+      margin:0 0 8px;
+      font-size:1.05rem;
+    }
+
+    p{margin:0 0 15px;}
+
+    .section{
+      background:var(--white);
+      border:1px solid var(--line);
+      padding:clamp(24px,4vw,40px);
+      margin:0 0 28px;
+    }
+
+    .section-head{
+      display:flex;
+      gap:16px;
+      align-items:baseline;
+      margin-bottom:22px;
+      border-bottom:3px solid var(--deep-purple);
+      padding-bottom:12px;
+    }
+
+    .section-number{
+      color:var(--orange);
+      font-size:.82rem;
+      font-weight:800;
+      letter-spacing:.14em;
+    }
+
+    .section-head h2{margin:0;font-size:clamp(1.55rem,3vw,2.15rem);}
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      padding:22px;
+      background:#fff;
+    }
+
+    .card.orange{border-top:6px solid var(--orange);}
+    .card.green{border-top:6px solid var(--green);}
+    .card.purple{border-top:6px solid var(--hws-purple);}
+    .card.deep{border-top:6px solid var(--deep-purple);}
+
+    .tag{
+      display:inline-block;
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+      color:var(--muted);
+    }
+
+    .callout{
+      border-left:5px solid var(--green);
+      background:var(--light-green);
+      padding:18px 20px;
+      margin-top:18px;
+    }
+
+    .takeaways{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin:22px 0;
+    }
+
+    .takeaway{
+      background:var(--cream);
+      border-top:4px solid var(--orange);
+      padding:18px;
+    }
+
+    .takeaway:nth-child(2){border-top-color:var(--green);}
+    .takeaway:nth-child(3){border-top-color:var(--hws-purple);}
+
+    .takeaway strong{
+      display:block;
+      color:var(--deep-purple);
+      margin-bottom:5px;
+    }
+
+    .editor-note{
+      background:var(--light-purple);
+      border-left:5px solid var(--hws-purple);
+      padding:16px 18px;
+      margin-bottom:20px;
+    }
+
+    .editor-note .tag{
+      color:var(--hws-purple);
+      margin-bottom:6px;
+    }
+
+    #try-this{
+      background:var(--deep-purple);
+      color:white;
+      border-color:var(--deep-purple);
+    }
+
+    #try-this .section-head{
+      border-bottom-color:var(--orange);
+    }
+
+    #try-this h2,
+    #try-this h3{
+      color:white;
+    }
+
+    #try-this .dec-tag{
+      color:white;
+      border-color:#d8c8e2;
+      background:rgba(255,255,255,.08);
+    }
+
+    #try-this .prompt-box{
+      background:#160b2d;
+      border:1px solid #4b3a65;
+    }
+
+    #try-this .callout{
+      background:rgba(255,255,255,.09);
+      color:white;
+      border-left-color:var(--orange);
+    }
+
+    #try-this .small{
+      color:#e8e1ec;
+    }
+
+    #you-said-it{
+      background:var(--cream);
+    }
+
+    .next-question{
+      margin-top:20px;
+      padding:20px;
+      background:white;
+      border-left:5px solid var(--orange);
+    }
+
+    .next-question h3{
+      margin-bottom:8px;
+    }
+
+    .faculty{
+      background:#fbfafc;
+      border:1px solid var(--line);
+      padding:24px;
+    }
+
+    .faculty p{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.05rem;
+    }
+
+    .faculty .byline{
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:.84rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:800;
+      color:var(--hws-purple);
+      margin-bottom:18px;
+    }
+
+    .faculty ol{
+      margin:14px 0 16px 1.2rem;
+      padding:0;
+    }
+
+    .faculty li{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.05rem;
+      padding-left:.35rem;
+      margin-bottom:14px;
+    }
+
+    .button{
+      display:inline-block;
+      text-decoration:none;
+      background:var(--hws-purple);
+      color:white;
+      font-weight:800;
+      padding:12px 18px;
+      border-radius:4px;
+      border:2px solid var(--hws-purple);
+      margin-top:4px;
+    }
+
+    .button:hover{
+      color:var(--deep-purple);
+      background:white;
+    }
+
+    .prompt-box{
+      background:var(--deep-purple);
+      color:white;
+      padding:24px;
+      margin:16px 0;
+    }
+
+    .prompt-box p{
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .prompt-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+
+    button.copy{
+      appearance:none;
+      background:var(--orange);
+      border:2px solid var(--orange);
+      color:white;
+      padding:10px 15px;
+      font-weight:800;
+      cursor:pointer;
+      border-radius:4px;
+      font-size:.92rem;
+    }
+
+    button.copy:hover{background:white;color:var(--orange);}
+
+    .copy-status{
+      font-size:.87rem;
+      color:#eee4f4;
+      min-height:1.4em;
+    }
+
+    .quotes{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .quote{
+      margin:0;
+      border:1px solid var(--line);
+      padding:22px;
+      background:var(--cream);
+    }
+
+    .quote p{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.05rem;
+      margin-bottom:14px;
+    }
+
+    .quote cite{
+      font-style:normal;
+      font-weight:800;
+      color:var(--deep-purple);
+    }
+
+    .resource{
+      display:grid;
+      grid-template-columns:minmax(0,2fr) minmax(220px,1fr);
+      gap:24px;
+      align-items:start;
+    }
+
+    .resource-meta{
+      background:var(--light-purple);
+      padding:18px;
+      border-left:5px solid var(--hws-purple);
+      font-size:.92rem;
+    }
+
+    .dec-tag{
+      display:inline-block;
+      font-size:.7rem;
+      font-weight:800;
+      letter-spacing:.04em;
+      color:var(--hws-purple);
+      background:var(--light-purple);
+      border:1px solid var(--hws-purple);
+      padding:3px 10px;
+      border-radius:999px;
+      margin:0 6px 10px 0;
+      text-transform:none;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+      margin:20px 0 24px;
+    }
+
+    .stat{
+      background:var(--light-purple);
+      padding:18px 14px;
+      text-align:center;
+      border-top:4px solid var(--hws-purple);
+    }
+
+    .stat .num{
+      font-size:2.1rem;
+      font-weight:800;
+      color:var(--hws-purple);
+      line-height:1;
+    }
+
+    .stat .label{
+      font-size:.8rem;
+      color:var(--muted);
+      margin-top:6px;
+      line-height:1.3;
+    }
+
+    .calendar{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .event{
+      padding:17px;
+      border:1px solid var(--line);
+      border-left:5px solid var(--orange);
+    }
+
+    .event.student{border-left-color:var(--green);}
+    .event.faculty-staff{border-left-color:var(--hws-purple);}
+    .event.all{border-left-color:var(--orange);}
+
+    .audience{
+      display:inline-block;
+      font-size:.64rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      padding:3px 9px;
+      border-radius:4px;
+      margin-bottom:8px;
+    }
+
+    .audience.student{background:var(--light-green);color:var(--green);}
+    .audience.faculty-staff{background:var(--light-purple);color:var(--hws-purple);}
+    .audience.all{background:var(--light-orange);color:var(--orange);}
+
+    .calendar-key{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+      font-size:.85rem;
+      color:var(--muted);
+    }
+
+    .calendar-key > span{display:inline-flex;align-items:center;gap:6px;}
+
+    .key-dot{
+      width:10px;
+      height:10px;
+      min-width:10px;
+      flex:0 0 10px;
+      border-radius:2px;
+      display:inline-block;
+    }
+
+    .key-dot.student{background:var(--green);}
+    .key-dot.faculty-staff{background:var(--hws-purple);}
+    .key-dot.all{background:var(--orange);}
+
+    .event time{
+      display:block;
+      font-weight:800;
+      color:var(--hws-purple);
+      margin-bottom:5px;
+      font-size:1.15rem;
+      line-height:1.2;
+      letter-spacing:.01em;
+    }
+
+    .closing{
+      background:var(--deep-purple);
+      color:white;
+      padding:34px;
+      text-align:center;
+    }
+
+    .closing h2{color:white;}
+    .closing a{color:white;}
+
+    footer{
+      background:#160b2d;
+      color:#ddd2e6;
+      padding:28px 20px;
+      text-align:center;
+      font-size:.84rem;
+    }
+
+    .small{font-size:.9rem;color:var(--muted);}
+    .no-bottom{margin-bottom:0;}
+
+    @media (max-width:760px){
+      .grid-2,.quotes,.resource,.calendar,.takeaways{grid-template-columns:1fr;}
+      .stats{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .issue-badge{white-space:normal;}
+      main{padding-left:14px;padding-right:14px;}
+      .section,.hero{padding:24px 20px;}
+      .header-inner{padding-left:18px;padding-right:18px;}
+    }
+
+    @media print{
+      .nav-wrap,.copy{display:none;}
+      body{background:white;}
+      main{max-width:none;padding:0;}
+      .section,.hero{break-inside:avoid;box-shadow:none;}
+      a{color:inherit;text-decoration:none;}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <p class="brand-kicker">Hobart and William Smith Colleges</p>
+        <h1 class="brand-title">THE PROMPT</h1>
+        <p class="brand-subtitle">AI at Hobart &amp; William Smith Colleges</p>
+      </div>
+      <div class="issue-badge">Issue No. 2 • September 2026</div>
+    </div>
+  </header>
+
+  <div class="nav-wrap">
+    <nav aria-label="Newsletter sections">
+      <a href="#welcome">Welcome</a>
+      <a href="#pilot-results">Pilot Results</a>
+      <a href="#around-hws">Around HWS</a>
+      <a href="#community">Community Voice</a>
+      <a href="#book-club">Book Club</a>
+      <a href="#try-this">Try This</a>
+      <a href="#you-said-it">You Said It</a>
+      <a href="#worth-a-look">Worth a Look</a>
+      <a href="#coming-up">Coming Up</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero" id="welcome">
+      <p class="eyebrow">A shared campus conversation</p>
+      <h2>Welcome to the Next Issue of <em>The Prompt</em></h2>
+
+      <p>With this issue, <strong>The Prompt</strong> is expanding to include both faculty and staff across HWS.</p>
+
+      <p>Generative AI is showing up in many different parts of our work, and the conversations around it are just as varied. Some people are experimenting with it regularly, some are still figuring out where it might fit, and some have significant questions or concerns about its use. We want <strong>The Prompt</strong> to be a place where those different perspectives can be part of the conversation.</p>
+
+      <p>We also hope you will help shape future issues. If you have an example from your work, a resource worth sharing, a question you are thinking about, or something you would like to write about, we would love to hear from you.</p>
+
+      <p>You will also notice small tags like <span class="dec-tag">DEC: Critical Thinking</span> next to a few items in this issue. These connect that item back to a specific dimension of the <strong>Digital Education Council's AI Literacy Framework</strong>, which we introduced in Issue No. 1 as a shared vocabulary for talking about AI skills across campus.</p>
+
+      <p class="no-bottom"><strong>The goal is simple:</strong> to share what we are learning and keep learning from one another.</p>
+    </section>
+
+    <section class="section" id="pilot-results">
+      <div class="section-head">
+        <span class="section-number">01</span>
+        <h2>Summer Pilot Results</h2>
+      </div>
+
+      <p>Before the fall BoodleBox pilot got underway, we closed out the summer pilot with a full survey of participants — <strong>34 faculty and staff respondents</strong>, split nearly evenly between the two groups. The short version: it went well, and the results are shaping how we're running things this fall.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">84%</div>
+          <div class="label">Overall satisfaction</div>
+        </div>
+        <div class="stat">
+          <div class="num">94%</div>
+          <div class="label">Increased comfort with AI</div>
+        </div>
+        <div class="stat">
+          <div class="num">94%</div>
+          <div class="label">Would recommend BoodleBox</div>
+        </div>
+        <div class="stat">
+          <div class="num">100%</div>
+          <div class="label">Support continuing the program</div>
+        </div>
+      </div>
+
+      <p>Beyond satisfaction with the platform itself, the pilot also seemed to shift the conversation around AI: <strong>75% said the experience changed how they think or talk about AI</strong>, and <strong>88% said they became more open to discussing AI use</strong>.</p>
+
+      <p>The most-used feature by far was simply chatting with AI models (94% of respondents), followed by image generation and document analysis. Respondents pointed to real time savings on syllabi, correspondence, and course prep, and several highlighted the ability to switch between different AI models as a standout feature.</p>
+
+      <div class="callout">
+        <strong>Equity was the standout theme.</strong> 88% of respondents agreed that BoodleBox promotes more equal AI access regardless of financial means. As one participant put it: “If we do not make it equal access, our students, already divided by economic class, will not be using the same tools.”
+      </div>
+
+      <p>Not everything was smooth: performance and speed were the most common technical complaint, and <strong>38% of respondents identified lack of time as a barrier to deeper use</strong>. Both are informing our training plans this fall, including requests for more hands-on workshop time, applied examples, and clearer beginner and advanced options.</p>
+
+      <div class="takeaways" aria-label="What we learned from the summer pilot">
+        <div class="takeaway">
+          <strong>Access matters</strong>
+          88% said BoodleBox promotes more equal AI access regardless of financial means.
+        </div>
+        <div class="takeaway">
+          <strong>Time matters</strong>
+          38% identified lack of time as a barrier to deeper use.
+        </div>
+        <div class="takeaway">
+          <strong>Practice matters</strong>
+          Participants asked for hands-on workshops, applied examples, and beginner and advanced options.
+        </div>
+      </div>
+
+      <p class="small">Want the full report, including all survey questions and open-ended responses? <a href="mailto:sgobe@hws.edu?subject=Summer%20BoodleBox%20Pilot%20Report%20Request">Email the coordinator</a> and we'll send it over.</p>
+
+      <p class="small no-bottom">See this fall's expanded pilot in <a href="#around-hws">Around HWS →</a></p>
+    </section>
+
+    <section class="section" id="around-hws">
+      <div class="section-head">
+        <span class="section-number">02</span>
+        <h2>Around HWS</h2>
+      </div>
+
+      <p>There is a lot happening around AI at HWS this fall. Here are a few ways to learn more, get involved, or find support.</p>
+
+      <div class="grid-2">
+        <article class="card orange">
+          <span class="tag">Fall Pilot</span>
+          <span class="dec-tag">DEC: Understanding AI &amp; Data</span>
+          <h3>BoodleBox Pilot</h3>
+          <p>The BoodleBox pilot is continuing this fall, with just over <strong>400 students across 15 courses</strong> invited to participate. The pilot gives participating students and faculty access to multiple generative AI models in one place.</p>
+          <p class="no-bottom">Students will complete a brief orientation before their accounts are activated, including the HWS AI Literacy Modules.</p>
+        </article>
+
+        <article class="card green">
+          <span class="tag">Student Support</span>
+          <h3>AI Drop-In Hours</h3>
+          <p>AI Drop-In Hours are available for students on <strong>Tuesdays from 11:30 a.m. to 12:45 p.m.</strong> as an informal space to ask questions, troubleshoot, explore ideas, or get support with generative AI tools.</p>
+          <p class="no-bottom">These hours are designed primarily for students, but faculty are also welcome to stop in if they would find the time useful.</p>
+        </article>
+
+        <article class="card purple">
+          <span class="tag">Digital Learning Center</span>
+          <h3>Student Workshop Series</h3>
+          <p>The Digital Learning Center is offering a <strong>Student Workshop Series</strong> throughout the fall semester on Thursdays from <strong>4:30 to 5:30 p.m. in Learning Studio 2 (LS2)</strong>.</p>
+          <p class="no-bottom">Workshops cover practical digital skills and AI topics, including AI literacy, ethical questions around AI use, hallucinations and bad prompts, Excel, video and audio editing, Photoshop, and more.</p>
+        </article>
+
+        <article class="card deep">
+          <span class="tag">Canvas Commons</span>
+          <span class="dec-tag">DEC: Ethical &amp; Responsible Use</span>
+          <h3>HWS AI Literacy Modules</h3>
+          <p>The <strong>HWS AI Literacy Modules</strong> are available in <strong>Canvas Commons</strong> for faculty to import into their courses. The four-module sequence gives students a shared foundation in understanding AI, responsible AI use, citing AI, and applying AI literacy concepts to academic situations.</p>
+          <p>Before assigning the modules, faculty are encouraged to review them in full and consider how the language, examples, and guidance align with their own course expectations and approach to AI.</p>
+          <div class="callout">
+            <strong>Differences can be part of the learning.</strong><br>
+            You may find places where the modules differ from your own policies, disciplinary norms, or beliefs about appropriate AI use. Those differences can be a useful opportunity for conversation with students about why expectations for AI may vary across courses, assignments, disciplines, and professional contexts.
+          </div>
+        </article>
+
+        <article class="card orange">
+          <span class="tag">Faculty &amp; Staff</span>
+          <h3>Using AI in Your Work?</h3>
+          <p><strong>The Prompt</strong> is expanding to include faculty and staff perspectives from across HWS. If you are experimenting with AI in your work, questioning where it belongs, or simply have a resource or idea worth sharing, we would like to hear from you.</p>
+          <p class="no-bottom"><a href="mailto:sgobe@hws.edu?subject=The%20Prompt%20-%20Idea%20or%20Contribution">Share an idea for a future issue</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="community">
+      <div class="section-head">
+        <span class="section-number">03</span>
+        <h2>From the HWS Community</h2>
+      </div>
+
+      <div class="editor-note">
+        <span class="tag">Community Perspective</span>
+        <p class="no-bottom"><em>The Prompt is intended to include a range of perspectives on generative AI. In this issue, Walter Bowyer shares how his concerns about AI shape the way he approaches it with students.</em></p>
+      </div>
+
+      <article class="faculty">
+        <div class="byline">Walter Bowyer</div>
+        <span class="dec-tag">DEC: Critical Thinking</span>
+        <span class="dec-tag">DEC: Human-Centricity &amp; EQ</span>
+
+        <p>I believe AI is a terrible development. It will benefit a few, but will be bad for most, bad for society, and bad for the world. That said: 1. it’s here, 2. students are using it, and 3. prohibitions are ineffective (Lund et al 2025, https://doi.org/10.1007/s10805-025-09613-3). Thus, I feel compelled to help students learn to integrate AI with their own intelligences. Although I have been using it for several years, I certainly am not an expert. However, Sarah Gobe invited me to contribute a couple of my strategies.</p>
+
+        <ol>
+          <li>I give short in-class writing assignments to work on specific skills (e.g. concision, vividness, audience), they then critique it, then ask AI to critique (not rewrite) it. Finally, I ask them to critique AI’s critique. I find that they become very engaged when AI suggests changes to their own work.</li>
+
+          <li>We work in class on prompt engineering. They use my suggested prompt to get AI to critique their work, then they revise the prompt and compare results. As a group we discuss the value of the AI responses resulting from various prompting strategies.</li>
+
+          <li>Most important and most challenging is to get them to think about the ethics of AI use, especially in the context of academic honesty. While reluctant to discuss their own use, they become very engaged when asked their perceptions of how their peers use AI. After a class discussion, small groups are each assigned a scenario (from an ever-evolving list), and they are asked what they would do or how they would feel, including why, pro/con, right/wrong, etc. (Many thanks to Karen Frost-Arnold for very helpful conversations on how to stimulate thoughtful responses.)</li>
+        </ol>
+
+        <p class="no-bottom">The final reason I learn and teach AI: as Sun Tzu, the ancient Chinese military strategist famously said, “If you know the enemy …, you need not fear the battle.” (Source: Gemini.)</p>
+      </article>
+    </section>
+
+    <section class="section" id="book-club">
+      <div class="section-head">
+        <span class="section-number">04</span>
+        <h2>The Prompt Book Club</h2>
+      </div>
+
+      <h3><em>Co-Intelligence: Living and Working with AI</em></h3>
+      <p>Several people have expressed interest in continuing <strong>The Prompt Book Club</strong>, and our next shared read will be <strong><em>Co-Intelligence: Living and Working with AI</em> by Ethan Mollick</strong>.</p>
+
+      <p>We’ll keep this simple and low-pressure. Read at your own pace, and then we’ll come together for an informal conversation about the ideas that stood out, the questions the book raises, and what those ideas might mean for our work at HWS.</p>
+
+      <p><strong>Interested in joining us?</strong> Add your name to the Book Club interest list. We’ll use that list to send the discussion invitation and any book club updates.</p>
+
+      <p><a class="button" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=PMS96d1d9E-ic7KYDt0Dg9fP6Z24Rb5JuyYKBd6okFBUQ0hOUE1LNThaNzBJWDdKSjhPR1lGVFFFMi4u" target="_blank" rel="noopener">I&#39;m Interested in the Book Club</a></p>
+
+      <p class="small no-bottom">You do not need to be an AI expert, and you certainly do not need to agree with everything in the book. The goal is to read, reflect, ask questions, and learn from one another.</p>
+    </section>
+
+    <section class="section" id="try-this">
+      <div class="section-head">
+        <span class="section-number">05</span>
+        <h2>Try This</h2>
+      </div>
+
+      <span class="dec-tag">DEC: Critical Thinking</span>
+      <h3>Ask AI to Show Its Assumptions</h3>
+      <p>When we ask AI a question, it often fills in missing context on its own. Sometimes those assumptions are harmless. Sometimes they shape the answer in ways we did not intend.</p>
+
+      <div class="prompt-box">
+        <p id="assumption-prompt">Before answering my question, identify three assumptions you might be making about my request. Then ask me what additional context would make your response more useful.</p>
+        <div class="prompt-actions">
+          <button class="copy" id="copy-prompt" type="button">Copy Prompt</button>
+          <span class="copy-status" id="copy-status" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <p>Then continue with your actual question or task and see whether the additional context changes the response.</p>
+      <div class="callout">
+        <strong>What to notice:</strong> Did the assumptions surprise you? Did adding more context change the quality of the response?
+      </div>
+      <p class="small no-bottom">This is a simple way to slow down the interaction and make the conversation with AI a little more intentional.</p>
+    </section>
+
+    <section class="section" id="you-said-it">
+      <div class="section-head">
+        <span class="section-number">06</span>
+        <h2>You Said It</h2>
+      </div>
+
+      <p>In the last issue, we asked:</p>
+      <h3>What is one human skill you think matters even more in an AI-shaped world?</h3>
+
+      <div class="quotes">
+        <blockquote class="quote">
+          <p>“Because AI allows people to retrieve information and build products more easily than before, it makes individual responsibility and discernment more important than ever. The barriers that previously compelled individuals to collaborate with others or think through projects slowly are deteriorating.”</p>
+          <cite>Melissa Hosek</cite>
+        </blockquote>
+
+        <blockquote class="quote">
+          <p>“Creativity + Courage. It’s thinking of the new thing and then being willing to risk failure to follow it to discovery.”</p>
+          <cite>Nan Crystal Arens<br><span class="small">Geoscience/Data Analytics</span></cite>
+        </blockquote>
+      </div>
+
+      <div class="next-question">
+        <span class="tag">For the Next Issue</span>
+        <h3>What is one thing you wish more people understood about AI?</h3>
+        <p class="no-bottom"><a href="mailto:sgobe@hws.edu?subject=The%20Prompt%20-%20You%20Said%20It&amp;body=One%20thing%20I%20wish%20more%20people%20understood%20about%20AI%20is%3A%20">Share your answer &rarr;</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="worth-a-look">
+      <div class="section-head">
+        <span class="section-number">07</span>
+        <h2>Worth a Look</h2>
+      </div>
+
+      <div class="resource">
+        <div>
+          <span class="dec-tag">DEC: Ethical &amp; Responsible Use</span>
+          <h3>AI Engagement Guide</h3>
+          <p>Not sure how to word your AI policy for a given assignment? This interactive tool from Finger Lakes Community College walks you through a set of plain-language options — from no AI use to open use, with several shades in between — plus matching disclosure and documentation requirements.</p>
+          <p>Once you make your selections, the tool generates ready-to-use policy language you can drop directly into a syllabus or assignment sheet, and you can download or share the result in several formats.</p>
+          <p><a class="button" href="https://www.flcc.ai/tools/ai-engagement-guide.html" target="_blank" rel="noopener">Try the Tool</a></p>
+        </div>
+
+        <aside class="resource-meta">
+          <strong>Creators</strong><br>
+          Ed Beck &amp; Tera Doty-Blance
+          <br><br>
+          <strong>Hosted By</strong><br>
+          Finger Lakes Community College
+          <br><br>
+          <strong>License</strong><br>
+          CC BY 4.0
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="coming-up">
+      <div class="section-head">
+        <span class="section-number">08</span>
+        <h2>Coming Up</h2>
+      </div>
+
+      <div class="calendar-key">
+        <span><span class="key-dot student"></span> For Students</span>
+        <span><span class="key-dot faculty-staff"></span> For Faculty &amp; Staff</span>
+        <span><span class="key-dot all"></span> Open to All</span>
+      </div>
+
+      <div class="calendar">
+        <div class="event student">
+          <span class="audience student">Students (Faculty Welcome)</span>
+          <time>Tuesdays</time>
+          <strong>AI Drop-In Hours</strong><br>
+          11:30 a.m. to 12:45 p.m.
+        </div>
+
+        <div class="event student">
+          <span class="audience student">For Students</span>
+          <time>September 10</time>
+          <strong>Basics of AI Literacy</strong><br>
+          4:30 to 5:30 p.m. | Learning Studio 2
+        </div>
+
+        <div class="event faculty-staff">
+          <span class="audience faculty-staff">For Faculty &amp; Staff</span>
+          <time>September 24</time>
+          <strong>AI Community of Practice</strong><br>
+          11:30 a.m. to 12:30 p.m.<br>
+          <a aria-label="RSVP for the September 24 AI Community of Practice meeting" href="mailto:sgobe@hws.edu?subject=RSVP%3A%20AI%20Community%20of%20Practice%20%28Sept%2024%29&amp;body=I'd%20like%20to%20RSVP%20for%20the%20AI%20Community%20of%20Practice%20meeting%20on%20September%2024.">RSVP</a>
+        </div>
+
+        <div class="event student">
+          <span class="audience student">For Students</span>
+          <time>October 8</time>
+          <strong>AI: Cheating or Study Tool?</strong><br>
+          4:30 to 5:30 p.m. | Learning Studio 2
+        </div>
+
+        <div class="event student">
+          <span class="audience student">For Students</span>
+          <time>October 22</time>
+          <strong>Why Is the AI Lying to Me? Hallucinations, Bad Prompts &amp; How to Fix Them</strong><br>
+          4:30 to 5:30 p.m. | Learning Studio 2
+        </div>
+
+        <div class="event student">
+          <span class="audience student">For Students</span>
+          <time>November 12</time>
+          <strong>Exploring Ethical Implications of AI</strong><br>
+          4:30 to 5:30 p.m. | Learning Studio 2
+        </div>
+
+        <div class="event faculty-staff">
+          <span class="audience faculty-staff">For Faculty &amp; Staff</span>
+          <time>Fall 2026</time>
+          <strong>The Prompt Book Club</strong><br>
+          Reading <em>Co-Intelligence</em> this fall.<br>
+          <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=PMS96d1d9E-ic7KYDt0Dg9fP6Z24Rb5JuyYKBd6okFBUQ0hOUE1LNThaNzBJWDdKSjhPR1lGVFFFMi4u" target="_blank" rel="noopener">Join the interest list</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <h2>Have Something to Share?</h2>
+      <p><strong>The Prompt</strong> is meant to be a place for conversation, not just updates. If you have something you are trying, a question you are thinking about, a resource others might find useful, or an idea for a future article, we’d love to hear from you.</p>
+      <p class="no-bottom"><a href="mailto:sgobe@hws.edu">sgobe@hws.edu</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Hobart and William Smith Colleges • The Prompt
+  </footer>
+
+  <script>
+    (function(){
+      const button = document.getElementById('copy-prompt');
+      const prompt = document.getElementById('assumption-prompt');
+      const status = document.getElementById('copy-status');
+
+      if (!button || !prompt || !status) return;
+
+      button.addEventListener('click', async function(){
+        const text = prompt.textContent.trim();
+
+        try{
+          if (navigator.clipboard && window.isSecureContext){
+            await navigator.clipboard.writeText(text);
+          } else {
+            const area = document.createElement('textarea');
+            area.value = text;
+            area.setAttribute('readonly','');
+            area.style.position = 'absolute';
+            area.style.left = '-9999px';
+            document.body.appendChild(area);
+            area.select();
+            document.execCommand('copy');
+            document.body.removeChild(area);
+          }
+          status.textContent = 'Copied!';
+          setTimeout(() => status.textContent = '', 2500);
+        }catch(e){
+          status.textContent = 'Select the prompt text above to copy it.';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
