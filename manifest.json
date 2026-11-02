@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "locale": "en_US",
+  "metadata": {
+    "appmode": "static",
+    "primary_html": "index.html",
+    "entrypoint": "index.html"
+  },
+  "files": {
+    "index.html": {
+      "checksum": "0304867e4ce36353a8da1f15f7c80508"
+    },
+    "issue-1/index.html": {
+      "checksum": "467579dfabbb3f9c8ae6a6937b300b6d"
+    },
+    "issue-2/index.html": {
+      "checksum": "010258139e6bfb87e452e97ca7b824f3"
+    }
+  }
+}
