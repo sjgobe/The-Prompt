@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Prompt: ideas, questions and conversations about AI at HWS. Issue No. 3, November 2026">
+  <title>The Prompt | Issue No. 3 | November 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;600;700&display=swap">
+  <style>
+    /* Lake + Curiosity */
+    :root{
+      --lake:#284B63;
+      --current:#4F8C89;
+      --current-deep:#3B706D;
+      --coral:#E87963;
+      --sunlight:#E7B44C;
+      --paper:#F7F3EA;
+      --ink:#30343B;
+      --current-tint:#EAF1F0;
+      --sunlight-tint:#F6E3B8;
+      --mist:#D6E4E3;
+      --card:#FFFDF8;
+      --line:#E3DDCF;
+      --display:"Lora", Georgia, serif;
+      --body:"Inter", Arial, sans-serif;
+      --radius-sm:8px;
+      --radius-md:16px;
+      --radius-lg:24px;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;scroll-padding-top:68px;}
+    body{
+      margin:0;
+      font-family:var(--body);
+      font-size:16px;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.65;
+    }
+
+    a{
+      color:var(--lake);
+      font-weight:600;
+      text-decoration-color:var(--coral);
+      text-decoration-thickness:2px;
+      text-underline-offset:3px;
+    }
+    a:hover{color:var(--current-deep);}
+    a:focus-visible,
+    button:focus-visible{
+      outline:3px solid var(--coral);
+      outline-offset:3px;
+      border-radius:4px;
+    }
+
+    /* Header */
+    .site-header{
+      background:var(--lake);
+      color:var(--paper);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .header-motif{
+      position:absolute;
+      right:0;
+      top:0;
+      height:100%;
+      width:auto;
+    }
+
+    .header-inner{
+      position:relative;
+      max-width:1000px;
+      margin:0 auto;
+      padding:30px 24px 38px;
+    }
+
+    .home-link{
+      display:inline-block;
+      margin-bottom:22px;
+      color:var(--mist);
+      font-size:.85rem;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .home-link:hover{color:var(--paper);text-decoration:underline;}
+
+    .issue-badge{
+      display:inline-block;
+      margin:0 0 12px;
+      padding:5px 14px;
+      border:1.5px solid var(--sunlight);
+      border-radius:999px;
+      color:var(--sunlight);
+      font-size:.78rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .brand-title{
+      margin:0;
+      font-family:var(--display);
+      font-weight:600;
+      font-size:clamp(2.8rem,8vw,5rem);
+      line-height:1;
+      color:var(--paper);
+    }
+
+    .brand-subtitle{
+      margin:14px 0 0;
+      max-width:30em;
+      font-size:1.08rem;
+      color:var(--mist);
+    }
+
+    /* Section nav */
+    .nav-wrap{
+      background:var(--card);
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:5;
+    }
+
+    nav{
+      max-width:1000px;
+      margin:0 auto;
+      display:flex;
+      gap:6px;
+      padding:10px 16px;
+      overflow-x:auto;
+      scrollbar-width:thin;
+    }
+
+    nav a{
+      text-decoration:none;
+      font-size:.86rem;
+      font-weight:600;
+      padding:7px 12px;
+      border-radius:999px;
+      white-space:nowrap;
+      color:var(--lake);
+    }
+    nav a:hover{background:var(--current-tint);color:var(--lake);}
+
+    main{
+      max-width:1000px;
+      margin:0 auto;
+      padding:48px 24px 72px;
+    }
+
+    h2,h3,h4{
+      font-family:var(--display);
+      font-weight:600;
+      line-height:1.22;
+      color:var(--lake);
+    }
+
+    h2{margin:0 0 16px;font-size:clamp(1.8rem,4vw,2.5rem);}
+    h3{margin:0 0 10px;font-size:1.4rem;}
+    h4{margin:0 0 8px;font-size:1.1rem;}
+    p{margin:0 0 16px;}
+
+    .eyebrow,
+    .tag{
+      display:inline-block;
+      font-size:.78rem;
+      font-weight:700;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:var(--current-deep);
+      margin:0 0 8px;
+    }
+
+    /* Welcome */
+    .hero{
+      max-width:760px;
+      margin:0 0 56px;
+    }
+
+    .hero p{font-size:1.08rem;}
+
+    /* Sections sit on Paper, with open space between them */
+    .section{
+      margin:0 0 64px;
+    }
+
+    .section-head{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-bottom:24px;
+      padding-bottom:14px;
+      border-bottom:2px solid var(--current);
+    }
+
+    .section-number{
+      flex:0 0 auto;
+      width:40px;
+      height:40px;
+      border-radius:999px;
+      background:var(--sunlight);
+      color:var(--ink);
+      font-size:.85rem;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .section-head h2{margin:0;font-size:clamp(1.6rem,3vw,2.1rem);}
+
+    .callout{
+      background:var(--sunlight-tint);
+      border-radius:var(--radius-md);
+      padding:18px 22px;
+      margin-top:18px;
+    }
+
+    .editor-note{
+      background:var(--current-tint);
+      border-radius:var(--radius-md);
+      padding:18px 22px;
+      margin-bottom:24px;
+      max-width:780px;
+    }
+
+    /* Community articles */
+    .faculty{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius-md);
+      padding:clamp(24px,4vw,44px);
+    }
+
+    .faculty + .faculty{margin-top:24px;}
+
+    .faculty h3{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:8px;}
+
+    .faculty p,
+    .faculty li{
+      font-size:1.04rem;
+      line-height:1.72;
+      max-width:44em;
+    }
+
+    .faculty .byline{
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:700;
+      color:var(--current-deep);
+      margin-bottom:20px;
+    }
+
+    .excerpt{
+      margin:6px 0 10px;
+      padding:20px 24px;
+      background:var(--sunlight-tint);
+      border-radius:var(--radius-md);
+      max-width:46em;
+    }
+
+    .excerpt p{
+      font-family:var(--display);
+      font-style:italic;
+      font-size:1.1rem;
+      color:var(--lake);
+    }
+
+    .faculty .source-note{
+      font-size:.85rem;
+      line-height:1.5;
+    }
+
+    .button{
+      display:inline-block;
+      text-decoration:none;
+      background:var(--lake);
+      color:var(--paper);
+      font-weight:700;
+      padding:11px 22px;
+      border-radius:999px;
+      border:2px solid var(--lake);
+      margin-top:4px;
+    }
+    .button:hover{background:var(--current-deep);border-color:var(--current-deep);color:var(--paper);}
+
+    /* Try This: the one Lake panel in the body */
+    #try-this{
+      background:var(--lake);
+      color:var(--paper);
+      border-radius:var(--radius-lg);
+      padding:clamp(24px,4vw,44px);
+    }
+
+    #try-this .section-head{border-bottom-color:var(--current);}
+    #try-this h2,
+    #try-this h3{color:var(--paper);}
+
+    .prompt-box{
+      background:var(--paper);
+      color:var(--ink);
+      border-radius:var(--radius-md);
+      padding:24px;
+      margin:18px 0;
+    }
+
+    .prompt-box p{
+      font-family:var(--display);
+      font-size:1.2rem;
+      line-height:1.5;
+      color:var(--lake);
+      margin:0;
+    }
+
+    .prompt-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    button.copy{
+      appearance:none;
+      background:var(--sunlight);
+      border:2px solid var(--sunlight);
+      color:var(--ink);
+      padding:9px 18px;
+      font-family:var(--body);
+      font-weight:700;
+      cursor:pointer;
+      border-radius:999px;
+      font-size:.92rem;
+    }
+    button.copy:hover{background:var(--paper);}
+
+    .copy-status{font-size:.87rem;color:var(--current-deep);min-height:1.4em;}
+
+    #try-this .callout{
+      background:rgba(247,243,234,.1);
+      color:var(--paper);
+    }
+
+    #try-this .small{color:var(--mist);margin-top:16px;}
+
+    /* You Said It */
+    .quotes{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:20px;
+      align-items:start;
+    }
+
+    .quote{
+      margin:0;
+      padding:26px;
+      background:var(--current-tint);
+      border-radius:var(--radius-md);
+    }
+
+    .quote p{
+      font-family:var(--display);
+      font-size:1.3rem;
+      line-height:1.45;
+      color:var(--lake);
+      margin-bottom:16px;
+    }
+
+    .quote cite{font-style:normal;font-weight:700;color:var(--ink);}
+
+    .next-question{
+      margin-top:24px;
+      padding:24px 26px;
+      background:var(--sunlight-tint);
+      border-radius:var(--radius-md);
+    }
+
+    .next-question .tag{color:var(--lake);}
+    .next-question h3{margin-bottom:10px;font-size:1.5rem;}
+
+    /* Worth a Look */
+    .resource{
+      display:grid;
+      grid-template-columns:minmax(0,2fr) minmax(220px,1fr);
+      gap:28px;
+      align-items:start;
+    }
+
+    .resource-meta{
+      background:var(--current-tint);
+      border-radius:var(--radius-md);
+      padding:20px;
+      font-size:.92rem;
+    }
+
+    .resource-second{
+      margin-top:32px;
+      padding-top:32px;
+      border-top:1px solid var(--line);
+    }
+
+    /* Around HWS */
+    .around-list{
+      display:grid;
+      gap:0;
+      margin-top:20px;
+      border-top:1px solid var(--line);
+    }
+
+    .around-item{
+      display:grid;
+      grid-template-columns:minmax(155px,.55fr) minmax(0,2fr);
+      gap:24px;
+      padding:22px 0;
+      border-bottom:1px solid var(--line);
+      align-items:start;
+    }
+
+    .around-item .tag{margin:5px 0 0;}
+    .around-item h3{margin-bottom:7px;}
+
+    /* Coming Up (used once dates are added) */
+    .timeline{margin-top:18px;border-top:1px solid var(--line);}
+
+    .timeline-event{
+      display:grid;
+      grid-template-columns:150px minmax(0,1fr) auto;
+      gap:20px;
+      align-items:start;
+      padding:19px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .timeline-event time{font-family:var(--display);font-weight:600;font-size:1.1rem;color:var(--lake);line-height:1.25;}
+    .timeline-event .event-title{display:block;font-weight:700;color:var(--ink);margin-bottom:3px;}
+    .timeline-event .event-meta{font-size:.92rem;}
+
+    .audience{
+      display:inline-block;
+      font-size:.7rem;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      padding:4px 11px;
+      border-radius:999px;
+      white-space:nowrap;
+      color:var(--ink);
+    }
+    .audience.student{background:var(--current-tint);}
+    .audience.faculty-staff{background:var(--sunlight-tint);}
+    .audience.all{background:var(--mist);}
+
+    /* Closing */
+    .closing{
+      background:var(--current-tint);
+      border-radius:var(--radius-lg);
+      padding:clamp(28px,5vw,48px);
+      text-align:center;
+    }
+
+    .closing p{max-width:40em;margin-left:auto;margin-right:auto;}
+
+    footer{
+      padding:8px 20px 36px;
+      text-align:center;
+      font-size:.84rem;
+      color:var(--ink);
+    }
+
+    .small{font-size:.9rem;}
+    .no-bottom{margin-bottom:0;}
+
+    .skip-link{
+      position:absolute;
+      left:12px;
+      top:-60px;
+      background:var(--paper);
+      color:var(--lake);
+      padding:10px 14px;
+      font-weight:700;
+      z-index:20;
+      border:2px solid var(--coral);
+      border-radius:var(--radius-sm);
+    }
+    .skip-link:focus{top:12px;}
+
+    .quote-solo{max-width:720px;}
+
+    @media (max-width:760px){
+      .quotes,.resource{grid-template-columns:1fr;}
+      .around-item{grid-template-columns:1fr;gap:6px;}
+      .timeline-event{grid-template-columns:1fr;gap:6px;}
+      .timeline-event .audience{justify-self:start;}
+      main{padding:36px 16px 56px;}
+      .header-inner{padding-left:18px;padding-right:18px;}
+      .header-motif{height:70%;opacity:.3;right:-60px;}
+      .section{margin-bottom:48px;}
+    }
+
+    @media print{
+      .nav-wrap,.copy,.header-motif{display:none;}
+      main{max-width:none;padding:0;}
+      .faculty{break-inside:auto;}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <svg class="header-motif" viewBox="0 0 420 300" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <circle cx="250" cy="120" r="74" fill="none" stroke="#F7F3EA" stroke-opacity=".5" stroke-width="3"/>
+      <circle cx="318" cy="150" r="74" fill="none" stroke="#F7F3EA" stroke-opacity=".5" stroke-width="3"/>
+      <circle cx="372" cy="96" r="58" fill="#4F8C89"/>
+      <circle cx="300" cy="212" r="46" fill="#E7B44C"/>
+      <circle cx="366" cy="232" r="22" fill="#E87963"/>
+      <circle cx="196" cy="226" r="6" fill="#E7B44C"/>
+      <circle cx="170" cy="70" r="4" fill="#D6E4E3"/>
+    </svg>
+    <div class="header-inner">
+      <a class="home-link" href="../">&larr; The Prompt home</a><br>
+      <span class="issue-badge">Issue No. 3 &bull; November 2026</span>
+      <h1 class="brand-title">The Prompt</h1>
+      <p class="brand-subtitle">Ideas, questions &amp; conversations about AI at HWS</p>
+    </div>
+  </header>
+
+  <div class="nav-wrap">
+    <nav aria-label="Newsletter sections">
+      <a href="#welcome">Welcome</a>
+      <a href="#community">Community Voice</a>
+      <a href="#around-hws">Around HWS</a>
+      <a href="#book-club">Book Club</a>
+      <a href="#try-this">Try This</a>
+      <a href="#you-said-it">You Said It</a>
+      <a href="#worth-a-look">Worth a Look</a>
+      <a href="#coming-up">Coming Up</a>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <section class="hero" id="welcome">
+      <p class="eyebrow">In this issue</p>
+      <h2>Checking, not just trusting</h2>
+
+      <p>My favorite thing about this issue is how much of it came from you. Colleagues in History, IT Services, Biology, the Library, and Theatre shared what they’re trying, what they’re reading, and what they’re still figuring out.</p>
+
+      <p>I didn’t give everyone a theme, but I kept coming back to the same question as I read their contributions. When AI can do so much of the work so quickly, what do we still need to know to make sense of what it gives us?</p>
+
+      <p>Sarah Stegeman brings that question into her history classroom with 2,000-year-old scrolls and asks students what they see in the words once they can finally read them. Chris Gregory shares what happens when an AI answer sounds right and the product documentation says something different. And Brad Cosentino takes us beyond the chat window with an example from his ecology lab, then asks a question I’m still thinking about. How do students learn to spot mistakes if AI does some of the work that used to teach them how?</p>
+
+      <p class="no-bottom">There’s also a prompt to try, two resources from colleagues, and a new question for next time. Thank you to everyone who sent something in. If you’ve tried something, read something worth passing along, or have a question you’re still sitting with, I’d love to hear from you.</p>
+    </section>
+
+    <section class="section" id="community">
+      <div class="section-head">
+        <span class="section-number">01</span>
+        <h2>From the HWS Community</h2>
+      </div>
+
+      <div class="editor-note">
+        <span class="tag">Community Perspectives</span>
+        <p class="no-bottom"><em>This section makes room for the different ways people at HWS are thinking about AI. In this issue, Sarah Stegeman shares a history lesson built around the Herculaneum scrolls, Chris Gregory writes about using AI as a second set of eyes in IT, and Brad Cosentino looks at the shift from chatbots to agents. Brad&rsquo;s piece began as his answer to last issue&rsquo;s question.</em></p>
+      </div>
+
+      <article class="faculty">
+        <h3>What the Herculaneum Scrolls Teach My Students About AI</h3>
+        <div class="byline">Sarah Stegeman &bull; History</div>
+
+        <p>I would be interested in contributing to the discussion on AI use on campus. I have a lesson that I have used to discuss appropriate usage of AI with students in my history courses. The takeaway to this lesson is that AU can be used as a tool for historians, but that the actual work of giving context and humanity to history needs to be done by humans.</p>
+
+        <p>The lesson follows the scrolls of Herculaneum (from 79 BCE) which were preserved in the eruption of Mount Vesuvius. In my lesson I provide background on the eruption and the city of Herculaneum, and then I discuss the attempts of antiquarians and historians to open the scrolls. We talk about the destructive processes that were done on the scrolls in the mid-nineteenth century, and the near-breakthroughs that occurred in the early 21st century with MRI and CT technologies.</p>
+
+        <p>We then view the Vesuvius Challenge website which details the work that has been done to implement a combination of technologies, like MRI, and artificial intelligence to unwrap and enhance the writings on the scrolls. Students love seeing the process, and I love highlighting how cool it is when science, technology, and history come together.</p>
+
+        <p>Then I have my students read the uncovered scrolls; which are a variety of philosophical treatises on the essence of being human. The following are excerpts from the Vesuvius Challenge website:</p>
+
+        <blockquote class="excerpt">
+          <p>“…we will inquire into something, but we will not grasp it, if in some way we depart from ourselves and from our own nature…”</p>
+          <p>“Having…strained ourselves to the utmost through research and learning…possessing the same practical wisdom…”</p>
+          <p class="no-bottom">“…such being the goods for us, even from the opposite evils there will be neither anything good — let alone beautiful — nor anything bad — let alone ugly — nor happiness…[1]</p>
+        </blockquote>
+
+        <p>I then ask my students to try to interpret the translations and consider how human nature and the desire to gain more knowledge has remained for over 2,000 years. Then I ask them to identify how they feel; do they feel empathy, commonality, interest, or something else? The feelings that they identify are the humanity that history requires, and is what I am asking them to bring to their work with me.</p>
+
+        <p>We then talk about how AI and other resources are tools to help them be historians and humans. I tell them that I don’t forbid the use of AI in most work, but ask that they consider what they are using it for and always cite it if they use it. The reason I love teaching history is because I love seeing their humanity, and the only way I can see it is if they are willing to share it.</p>
+
+        <p>I believe that this is a unique approach to AI usage particularly in History, where I have typically seen AI usage strictly forbidden in hopes of encouraging students to do their own “heavy lifting”. I think my approach encourages students to critically think about what they can bring to their work that AI cannot.</p>
+
+        <p class="source-note no-bottom">[1] Translation from Greek of Herculaneum Scroll, PHerc. 1667, <a href="https://scrollprize.org/firstscroll" target="_blank" rel="noopener">https://scrollprize.org/firstscroll</a></p>
+      </article>
+
+      <article class="faculty">
+        <h3>AI as a Second Set of Eyes: Useful, but Not Infallible</h3>
+        <div class="byline">Chris Gregory &bull; IT Services</div>
+
+        <p>In IT, we&rsquo;ve been exploring how artificial intelligence can help us solve technical problems, investigate security vulnerabilities, and make more informed decisions. One example is cybersecurity monitoring. We use AI-assisted workflows to review vendor security advisories, identify vulnerabilities that may affect our environment, and help prioritize what requires investigation. We&rsquo;ve also used AI to troubleshoot complicated network and wireless problems, evaluate technical solutions, and challenge our own assumptions.</p>
+
+        <p>But perhaps the most interesting lesson has been discovering how confidently AI can be wrong.</p>
+
+        <p>An AI system might provide a technically convincing explanation or recommendation that doesn&rsquo;t quite match the actual product documentation. That makes verification essential, particularly when dealing with critical infrastructure. We&rsquo;ve found that AI is most valuable when treated as a knowledgeable but fallible colleague: someone who can research, brainstorm, challenge assumptions, and help organize evidence, but whose conclusions still require verification.</p>
+
+        <p class="no-bottom">The biggest benefit isn&rsquo;t necessarily finding answers faster. It&rsquo;s improving the quality of the questions we ask, the alternatives we consider, and the decisions we make.</p>
+      </article>
+
+      <article class="faculty">
+        <h3>From Chatbots to Agents: Where the Burden Has Moved</h3>
+        <div class="byline">Bradley Cosentino &bull; Biology</div>
+
+        <p>I wish more people understood how far AI has moved beyond the chat window most people first tried and are still using: ask a question, get an answer, wonder whether it was hallucinated. That is the AI of three years ago. The tools now changing how work gets done are agents: programs such as Claude Code and Codex that carry out a task rather than answer a question. You describe the goal, point the agent at a folder of files on your computer, and it reads them, produces the work you request, checks it against what you asked for, and asks when it is unsure.</p>
+
+        <p>Consider an example from my teaching. Last spring I rebuilt a multi-week lab exercise on landscape ecology in BIOL225 (Ecology), in which students test how forest cover and proximity to roads affect the abundance of gray squirrels in Geneva. I gave an agent the materials from a similar lab in a previous year and asked for three products: 1) an <a href="https://canvas.hws.edu/courses/7846782/files/360217437?wrap=1" target="_blank" rel="noopener">updated introduction and protocol</a> reflecting the new design I envisioned, 2) a <a href="https://canvas.hws.edu/courses/7846782/files/360217506?wrap=1" target="_blank" rel="noopener">printed datasheet</a> for each of 12 student groups, and 3) an <a href="https://canvas.hws.edu/courses/7846782/files/360217580?wrap=1" target="_blank" rel="noopener">HTML map</a> of the study sites students would visit to collect data. It returned a revised handout, a set of datasheets listing each group&rsquo;s sites with QR codes that open the exact location in satellite view on a phone, and an interactive map with sites color-coded by group, a forest-cover layer, and a popup for each site showing its forest cover and whether a major road runs nearby. I could have manually created all of these products myself, but it would have taken a few afternoons, whereas with the agent it took a few hours. The same approach works for lecture slides, class activities, and other course materials.</p>
+
+        <p>Validation becomes the critical step with these tools. Agents produce confident work that can be wrong in ways only someone who knows the material will catch, so I read and revised the protocol as I would something I or a collaborator had drafted, verified that the coordinates placed students where I intended, and corrected what needed correcting. I am also using agents extensively to write and run analyses in my research lab, and the same principle applies: analyzing data or creating a graphic has become easy, whereas deciding whether to trust the result still requires expertise.</p>
+
+        <p>If you tend to get annoyed with the generic style of AI output, note that you can train agents to do things the way you like with &ldquo;skills.&rdquo; These are essentially instruction manuals an agent reads before it carries out a task. For example a skill for slide decks might specify minimal text mainly with bulleted points and an emphasis on images and graphs, and the agent will follow those guidelines whenever you ask it to draft slides.</p>
+
+        <p>The shift from chatbots to agents raises questions about teaching and education that go well beyond cheating and plagiarism. Those concerns are real, but they are the narrow part of a larger question: what do students need to learn when a tool can produce so much of the work? Information became cheap with chatbots, and code and tasks have become cheap with agents. A student in my biostatistics course can use an agent to write the code for a simple analysis or graph in a matter of minutes, but what is not cheap is the judgment to determine whether that analysis is right, and this raises the question of how much a student must understand to validate the analysis. Do they need to read and write code line by line? Should they reproduce every step independently? Or do they just need to know which questions to ask and which checks to apply? The big question for me is how students develop effective validation skills if they delegate the very work through which they would traditionally have learned them. I do not know, and the answer likely differs among courses and disciplines. What I am more confident of is where the burden has moved. Making code and products easy to produce does not make understanding less important. If anything I think it makes what (to me) has always been the harder part of teaching more important &hellip; critical analysis and a disciplined process of checking rather than trusting. Those are questions about learning, not policing, and I would like us to spend more time discussing how we teach and assess those abilities with the latest AI tools.</p>
+
+        <p class="source-note no-bottom" style="margin-top:20px;">The three linked lab materials open in the AI Community of Practice course in Canvas.</p>
+      </article>
+    </section>
+
+    <section class="section" id="around-hws">
+      <div class="section-head">
+        <span class="section-number">02</span>
+        <h2>Around HWS</h2>
+      </div>
+
+      <p>Here are a few things you can join or share with students before the semester ends.</p>
+
+      <div class="around-list">
+        <article class="around-item">
+          <span class="tag">Faculty &amp; Staff</span>
+          <div>
+            <h3>BoodleBox Faculty &amp; Staff Meetings</h3>
+            <p>We meet in person from <strong>2:00 to 3:00 p.m. in Learning Studio 2 (LS2) in the Library</strong>, and each meeting opens with a 15-minute mini-session led by a colleague. Mini-sessions don&rsquo;t need to be formal. Share something you tried, demo a workflow, show a prompt that worked (or didn&rsquo;t), or bring a question for the group.</p>
+            <p>Three meetings are left this fall: <strong>November 17, December 1, and December 11</strong>. Use the sign-up sheet to tell us which dates you plan to attend or to add yourself as a presenter. The December dates are still open for presenters.</p>
+            <p class="no-bottom"><a class="button" href="https://sjgobe.github.io/Sign-Up-Sheet/" target="_blank" rel="noopener">See Dates &amp; Sign Up</a></p>
+          </div>
+        </article>
+
+        <article class="around-item">
+          <span class="tag">Student Support</span>
+          <div>
+            <h3>AI Student Drop-In Hours</h3>
+            <p class="no-bottom">AI Student Drop-In Hours are held <strong>Tuesdays from 11:30 a.m. to 12:45 p.m.</strong> Students can bring a question, get help with something they are trying, or simply come in and explore.</p>
+          </div>
+        </article>
+
+        <article class="around-item">
+          <span class="tag">Faculty &amp; Staff</span>
+          <div>
+            <h3>Using AI in Your Work?</h3>
+            <p>Every piece in this issue started as an email or a discussion post from a colleague. If you are trying something with AI, questioning it, pushing back on it, or have a resource you think other people should see, we would love to hear from you.</p>
+            <p class="no-bottom"><a href="mailto:sgobe@hws.edu?subject=The%20Prompt%20-%20Idea%20or%20Contribution">Share an idea for a future issue</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="book-club">
+      <div class="section-head">
+        <span class="section-number">03</span>
+        <h2>The Prompt Book Club</h2>
+      </div>
+
+      <h3><em>Co-Intelligence: Living and Working with AI</em></h3>
+
+      <p>The book club met to discuss the first half of <strong><em>Co-Intelligence</em>, by Ethan Mollick</strong>. It was a great hour of talking through the impact of AI over coffee.</p>
+
+      <p>We will meet again on <strong>Thursday, December 17, from 12:00 to 1:00 p.m.</strong> Feel free to join us, even if you missed the first conversation.</p>
+
+      <p>We are also exploring a second book for next semester.</p>
+
+      <p class="no-bottom"><a class="button" href="https://forms.cloud.microsoft/r/FQh3BwQDZa" target="_blank" rel="noopener">Join the Book Club Interest List</a></p>
+    </section>
+
+    <section class="section" id="try-this">
+      <div class="section-head">
+        <span class="section-number">04</span>
+        <h2>Try This</h2>
+      </div>
+
+      <h3>Ask AI What to Double-Check</h3>
+      <p>All three community pieces in this issue come back to verification. AI answers sound equally confident whether they are right or wrong, which makes it hard to know where to start checking. This prompt asks the AI to point at its own weak spots.</p>
+
+      <div class="prompt-box">
+        <p id="assumption-prompt">After you answer my question, list the three claims in your response that I should verify before relying on them. For each one, tell me why it might be wrong and where I could check it.</p>
+        <div class="prompt-actions">
+          <button class="copy" id="copy-prompt" type="button">Copy Prompt</button>
+          <span class="copy-status" id="copy-status" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <p>Add it to the end of a question you would normally ask, then follow up on at least one of the three.</p>
+      <div class="callout">
+        <strong>Pay attention to:</strong> Did checking turn anything up? Were the claims it flagged the ones you would have questioned yourself?
+      </div>
+      <p class="small no-bottom">The list is a starting point, not a guarantee. An AI can miss its own mistakes, so the claims it does not flag still deserve a look when the stakes are high.</p>
+    </section>
+
+    <section class="section" id="you-said-it">
+      <div class="section-head">
+        <span class="section-number">05</span>
+        <h2>You Said It</h2>
+      </div>
+
+      <p>In Issue No. 2, we asked:</p>
+      <h3>What is one thing you wish more people understood about AI?</h3>
+
+      <blockquote class="quote quote-solo">
+        <p>&ldquo;Making code and products easy to produce does not make understanding less important.&rdquo;</p>
+        <cite>Bradley Cosentino<br><span class="small">Biology &bull; <a href="#community">Read his full response above</a></span></cite>
+      </blockquote>
+
+      <div class="next-question">
+        <span class="tag">Your Turn</span>
+        <h3>How do you decide when to trust what AI gives you?</h3>
+        <p class="no-bottom"><a href="https://canvas.hws.edu/courses/7846782/discussion_topics/27338636" target="_blank" rel="noopener">Share your answer &rarr;</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="worth-a-look">
+      <div class="section-head">
+        <span class="section-number">06</span>
+        <h2>Worth a Look</h2>
+      </div>
+
+      <div class="resource">
+        <div>
+          <h3>Task Cards for Teaching AI Literacy</h3>
+          <p>Sarah O&rsquo;Shea in the Library passed along this free collection of ready-to-use classroom activities from Faktabaari EDU in Finland. It holds 286 task cards organized by level, from early childhood through higher education.</p>
+          <p>Each card gives a learning goal, the time needed, the activity itself, an assessment note, discussion questions, and a tip for the teacher. The 24 higher education cards start on page 318. One of them, &ldquo;Information retrieval with AI and the limits of the method,&rdquo; has students search for scholarly information with AI and then check the sources against the originals in a single 45-minute session.</p>
+          <p><a class="button" href="https://faktabaari.fi/images/ai_task_bank_by_level_en.pdf" target="_blank" rel="noopener">Open the Task Cards (PDF)</a></p>
+        </div>
+
+        <aside class="resource-meta">
+          <strong>Publisher</strong><br>
+          Faktabaari EDU
+          <br><br>
+          <strong>Shared By</strong><br>
+          Sarah O&rsquo;Shea, Library
+          <br><br>
+          <strong>License</strong><br>
+          CC BY 4.0
+        </aside>
+      </div>
+
+      <div class="resource resource-second">
+        <div>
+          <h3>AI News and (Maybe) More</h3>
+          <p>H. May, Professor and Chair of Theatre, recommends this Substack, which compiles and contextualizes news about AI, especially as it relates to higher education. It is written by Beth, a community college music professor in the Pacific Northwest, so it comes from someone working through the same classroom questions we are.</p>
+          <p>A new &ldquo;AI Roundup&rdquo; goes up every few weeks. If you want help keeping up without reading everything yourself, it is a good place to start.</p>
+          <p><a class="button" href="https://beth586896.substack.com/" target="_blank" rel="noopener">Read the Substack</a></p>
+        </div>
+
+        <aside class="resource-meta">
+          <strong>Written By</strong><br>
+          Beth, community college music professor
+          <br><br>
+          <strong>Shared By</strong><br>
+          H. May, Theatre
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="coming-up">
+      <div class="section-head">
+        <span class="section-number">07</span>
+        <h2>Coming Up</h2>
+      </div>
+
+      <p>Here is what is left on the calendar this fall.</p>
+
+      <div class="timeline">
+        <div class="timeline-event">
+          <time>Tuesdays</time>
+          <div>
+            <span class="event-title">AI Student Drop-In Hours</span>
+            <span class="event-meta">11:30 a.m. to 12:45 p.m.</span>
+          </div>
+          <span class="audience student">For Students</span>
+        </div>
+        <div class="timeline-event">
+          <time datetime="2026-11-17">Tuesday, Nov. 17</time>
+          <div>
+            <span class="event-title">BoodleBox Faculty &amp; Staff Meeting</span>
+            <span class="event-meta">2:00 to 3:00 p.m. | LS2, Library | Repeats the Nov. 13 mini-session | <a href="https://sjgobe.github.io/Sign-Up-Sheet/" target="_blank" rel="noopener">Sign up</a></span>
+          </div>
+          <span class="audience faculty-staff">Faculty &amp; Staff</span>
+        </div>
+        <div class="timeline-event">
+          <time datetime="2026-12-01">Tuesday, Dec. 1</time>
+          <div>
+            <span class="event-title">BoodleBox Faculty &amp; Staff Meeting</span>
+            <span class="event-meta">2:00 to 3:00 p.m. | LS2, Library | Open for a presenter | <a href="https://sjgobe.github.io/Sign-Up-Sheet/" target="_blank" rel="noopener">Sign up</a></span>
+          </div>
+          <span class="audience faculty-staff">Faculty &amp; Staff</span>
+        </div>
+        <div class="timeline-event">
+          <time datetime="2026-12-11">Friday, Dec. 11</time>
+          <div>
+            <span class="event-title">BoodleBox Faculty &amp; Staff Meeting</span>
+            <span class="event-meta">2:00 to 3:00 p.m. | LS2, Library | Open for a presenter | <a href="https://sjgobe.github.io/Sign-Up-Sheet/" target="_blank" rel="noopener">Sign up</a></span>
+          </div>
+          <span class="audience faculty-staff">Faculty &amp; Staff</span>
+        </div>
+        <div class="timeline-event">
+          <time datetime="2026-12-17">Thursday, Dec. 17</time>
+          <div>
+            <span class="event-title">The Prompt Book Club: <em>Co-Intelligence</em></span>
+            <span class="event-meta">12:00 to 1:00 p.m.</span>
+          </div>
+          <span class="audience faculty-staff">Faculty &amp; Staff</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <h2>Have Something to Share?</h2>
+      <p class="no-bottom">We want <strong>The Prompt</strong> to reflect what people across HWS are actually thinking about and doing with AI. If you have something you are trying, a question you are wrestling with, a resource you keep recommending, or an idea for a piece, we would love to hear it.</p>
+    </section>
+  </main>
+
+  <footer>
+    The Prompt • © 2026 Hobart and William Smith Colleges
+  </footer>
+
+  <script>
+    (function(){
+      const button = document.getElementById('copy-prompt');
+      const prompt = document.getElementById('assumption-prompt');
+      const status = document.getElementById('copy-status');
+
+      if (!button || !prompt || !status) return;
+
+      button.addEventListener('click', async function(){
+        const text = prompt.textContent.trim();
+
+        try{
+          if (navigator.clipboard && window.isSecureContext){
+            await navigator.clipboard.writeText(text);
+          } else {
+            const area = document.createElement('textarea');
+            area.value = text;
+            area.setAttribute('readonly','');
+            area.style.position = 'absolute';
+            area.style.left = '-9999px';
+            document.body.appendChild(area);
+            area.select();
+            document.execCommand('copy');
+            document.body.removeChild(area);
+          }
+          status.textContent = 'Copied!';
+          setTimeout(() => status.textContent = '', 2500);
+        }catch(e){
+          status.textContent = 'Select the prompt text above to copy it.';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
