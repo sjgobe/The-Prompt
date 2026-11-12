@@ -385,6 +385,35 @@
     .next-question .tag{color:var(--lake);}
     .next-question h3{margin-bottom:10px;font-size:1.5rem;}
 
+    /* A Question From a Reader */
+    .open-question{
+      position:relative;
+      overflow:hidden;
+      padding:clamp(28px,5vw,52px);
+      background:var(--current-tint);
+      border:2px solid var(--current);
+      border-radius:var(--radius-lg);
+    }
+    .oq-motif{
+      position:absolute;
+      right:18px;
+      top:10px;
+      width:150px;
+      height:auto;
+    }
+    .open-question .tag{position:relative;}
+    .open-question blockquote{margin:6px 0 24px;padding-right:140px;position:relative;}
+    .open-question blockquote p{
+      font-family:var(--display);
+      font-size:clamp(1.3rem,2.6vw,1.7rem);
+      line-height:1.45;
+      color:var(--lake);
+      margin:0 0 14px;
+    }
+    .open-question cite{font-style:normal;font-weight:700;color:var(--ink);}
+    .open-question cite .small{font-weight:400;}
+    .open-question > p{max-width:44em;}
+
     /* Worth a Look */
     .resource{
       display:grid;
@@ -501,6 +530,9 @@
       main{padding:36px 16px 56px;}
       .header-inner{padding-left:18px;padding-right:18px;}
       .header-motif{height:70%;opacity:.3;right:-60px;}
+      .oq-motif{width:90px;opacity:.5;}
+      .open-question blockquote{padding-right:0;}
+      .open-question .tag{max-width:60%;}
       .section{margin-bottom:48px;}
     }
 
@@ -540,6 +572,7 @@
       <a href="#book-club">Book Club</a>
       <a href="#try-this">Try This</a>
       <a href="#you-said-it">You Said It</a>
+      <a href="#reader-question">Reader Question</a>
       <a href="#worth-a-look">Worth a Look</a>
       <a href="#coming-up">Coming Up</a>
     </nav>
@@ -550,13 +583,13 @@
       <p class="eyebrow">In this issue</p>
       <h2>Checking, not just trusting</h2>
 
-      <p>My favorite thing about this issue is how much of it came from you. Colleagues in History, IT Services, Biology, the Library, and Theatre shared what they’re trying, what they’re reading, and what they’re still figuring out.</p>
+      <p>Our favorite thing about this issue is how much of it came from you. Colleagues in History, IT Services, Biology, the Library, and Theatre shared what they’re trying, what they’re reading, and what they’re still figuring out.</p>
 
-      <p>I didn’t give everyone a theme, but I kept coming back to the same question as I read their contributions. When AI can do so much of the work so quickly, what do we still need to know to make sense of what it gives us?</p>
+      <p>We didn’t give everyone a theme, but we kept coming back to the same question as we read their contributions. When AI can do so much of the work so quickly, what do we still need to know to make sense of what it gives us?</p>
 
-      <p>Sarah Stegeman brings that question into her history classroom with 2,000-year-old scrolls and asks students what they see in the words once they can finally read them. Chris Gregory shares what happens when an AI answer sounds right and the product documentation says something different. And Brad Cosentino takes us beyond the chat window with an example from his ecology lab, then asks a question I’m still thinking about. How do students learn to spot mistakes if AI does some of the work that used to teach them how?</p>
+      <p>Sarah Stegeman brings that question into her history classroom with 2,000-year-old scrolls and asks students what they see in the words once they can finally read them. Chris Gregory shares what happens when an AI answer sounds right and the product documentation says something different. And Brad Cosentino takes us beyond the chat window with an example from his ecology lab, then asks a question we’re still thinking about. How do students learn to spot mistakes if AI does some of the work that used to teach them how?</p>
 
-      <p class="no-bottom">There’s also a prompt to try, two resources from colleagues, and a new question for next time. Thank you to everyone who sent something in. If you’ve tried something, read something worth passing along, or have a question you’re still sitting with, I’d love to hear from you.</p>
+      <p class="no-bottom">There’s also a prompt to try, two resources from colleagues, and a new question for next time. Thank you to everyone who sent something in. If you’ve tried something, read something worth passing along, or have a question you’re still sitting with, we’d love to hear from you.</p>
     </section>
 
     <section class="section" id="community">
@@ -728,9 +761,31 @@
       </div>
     </section>
 
-    <section class="section" id="worth-a-look">
+    <section class="section" id="reader-question">
       <div class="section-head">
         <span class="section-number">06</span>
+        <h2>A Question From a Reader</h2>
+      </div>
+
+      <div class="open-question">
+        <svg class="oq-motif" viewBox="0 0 160 130" aria-hidden="true">
+          <circle cx="70" cy="60" r="44" fill="none" stroke="#4F8C89" stroke-width="3"/>
+          <circle cx="112" cy="52" r="34" fill="#E7B44C"/>
+          <circle cx="98" cy="98" r="16" fill="#E87963"/>
+        </svg>
+        <span class="tag">Open to the Community</span>
+        <blockquote>
+          <p>&ldquo;Since HWS makes a point of being so energy and footprint conscious, have you considered doing an environmental, ecological, and financial impact section(s) that discuss what the generative AI footprint of HWS is and what it could/should be? (for the campus and in relationship to the broader local communities)&rdquo;</p>
+          <cite>Lara Schmidtgall<br><span class="small">Performing Arts Center</span></cite>
+        </blockquote>
+        <p>Lara sent this question in, and it is a question for all of us. What do you know? What do you wonder about? What should we be paying attention to, on campus and in the communities around us?</p>
+        <p class="no-bottom"><a class="button" href="mailto:sgobe@hws.edu?subject=The%20Prompt%20-%20AI%20Footprint%20Question">Share Your Thoughts</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="worth-a-look">
+      <div class="section-head">
+        <span class="section-number">07</span>
         <h2>Worth a Look</h2>
       </div>
 
@@ -774,7 +829,7 @@
 
     <section class="section" id="coming-up">
       <div class="section-head">
-        <span class="section-number">07</span>
+        <span class="section-number">08</span>
         <h2>Coming Up</h2>
       </div>
 
