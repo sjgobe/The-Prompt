@@ -8,13 +8,16 @@
   },
   "files": {
     "index.html": {
-      "checksum": "7d4f532a44d06ec8f77c108df95177c8"
+      "checksum": "b70a8ccefbbe6999d51b97175bed0163"
     },
     "issue-1/index.html": {
       "checksum": "467579dfabbb3f9c8ae6a6937b300b6d"
     },
     "issue-2/index.html": {
       "checksum": "010258139e6bfb87e452e97ca7b824f3"
+    },
+    "issue-3/index.html": {
+      "checksum": "d67db738548cc034ce44a1cfbedd8a0d"
     }
   }
 }
